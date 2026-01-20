@@ -22,14 +22,18 @@ const links = [
     name: "Templates",
     href: "#",
   },
+  {
+    name: "Showcase",
+    href: "#",
+  }
 ]
 
 const Header = () => {
   const { theme, setTheme } = useTheme()
   return (
     <>
-      <div className='w-full h-18 font-grotesk flex items-center justify-between p-4 bg-background shadow-lg'>
-        <div className='flex items-center space-x-6'>
+      <div className='fixed z-50 w-full h-18 font-grotesk flex items-center justify-around p-4 bg-background  shadow-lg'>
+        <div className='flex items-center space-x-10'>
           <h1 className='text-2xl dark:text-neutral-200 font-bold cursor-pointer ring ring-foreground dark:ring-neutral-200 p-2  dark:shadow-[5px_5px_0px_1px_#ffff] shadow-[5px_5px_0px_1px_#000]'>Madrich UI</h1>
           <div className='flex items-center space-x-4 font-medium text-lg text-neutral-700 dark:text-neutral-200'>
             {links.map((link) => (
@@ -41,7 +45,7 @@ const Header = () => {
         </div>
 
         <div className='flex items-center space-x-6'>
-          <div className='flex items-center space-x-4 '>
+          <div className='flex items-center space-x-6'>
             <Link href="#" className='cursor-pointer ring ring-foreground p-2  dark:shadow-[5px_5px_0px_1px_#ffff] shadow-[5px_5px_0px_1px_#000]'>
               <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" className="bi bi-twitter-x" viewBox="0 0 16 16" id="Twitter-X--Streamline-Bootstrap" height="18" width="18">
                 <desc>
@@ -73,9 +77,9 @@ const Header = () => {
           </button>
         </div>
       </div>
-      
-      <div className='h-1 w-full bg-foreground'>
-        
+
+      <div className='z-50 fixed mt-18 h-1 w-full bg-foreground'>
+
       </div>
     </>
   )
