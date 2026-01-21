@@ -4,7 +4,7 @@ const Hero = () => {
         <>
 
 
-            <div className="relative font-grotesk flex items-center justify-around h-screen overflow-hidden ">
+            <div className="relative font-grotesk flex items-center justify-around h-screen w-full overflow-hidden ">
                 {/* Large Blocks */}
                 <div className="-z-10 absolute -top-20 -left-24 h-64 w-64 rotate-6 border-4 border-foreground bg-yellow-400 " />
                 <div className="-z-10 absolute top-32 -right-32 h-72 w-72 -rotate-3 border-4 border-foreground bg-blue-500" />

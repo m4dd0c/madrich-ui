@@ -1,14 +1,16 @@
 
 import Header from "@/components/Layout/Header";
 import Hero from "@/components/Layout/Hero";
-import Usecase from "@/components/Layout/Usecase";
+import Features from "@/components/Layout/Features";
 import * as React from "react";
+import Show from "@/components/Layout/Show";
 
 export default function Home() {
   return (
     <>
      <Hero />
-     <Usecase />
+     <Features />
+     <Show />
     </>
   );
 }

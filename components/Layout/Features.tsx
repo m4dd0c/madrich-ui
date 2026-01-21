@@ -6,7 +6,7 @@ import {
 } from "lucide-react";
 
 
-function Usecase() {
+function Features() {
     return (
         <>
             <section className="relative bg-background font-grotesk px-6 py-32">
@@ -70,4 +70,4 @@ function Usecase() {
     )
 }
 
-export default Usecase
+export default Features
