@@ -14,7 +14,7 @@ const LeftSidebar = () => {
             <Link
               className="text-xl p-2 font-bold"
               key={component}
-              href={`./components/${component}`}
+              href={`/components/${component}`}
             >
               {component}
             </Link>
