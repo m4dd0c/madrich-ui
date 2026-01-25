@@ -5,12 +5,10 @@ import Installation from "@/components/shared/Installation";
 import Preview from "@/components/shared/Preview";
 import Usage from "@/components/shared/Usage";
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { ComponentDetails, components } from "@/lib/constants";
 
 const Page = ({ params }: { params: Promise<{ slug: string[] }> }) => {
-  const resolvedParams = React.use(params);
-  const slug = resolvedParams.slug[0];
+  const { slug } = await params;
   const [comp, setComp] = useState<null | ComponentDetails>(null);
 
   useEffect(() => {
