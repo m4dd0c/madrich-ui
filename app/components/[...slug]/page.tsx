@@ -1,23 +1,31 @@
 "use client";
+
+import React, { useEffect, useState } from "react";
 import Example from "@/components/shared/Example";
 import Header from "@/components/shared/Header";
 import Installation from "@/components/shared/Installation";
 import Preview from "@/components/shared/Preview";
 import Usage from "@/components/shared/Usage";
-import React, { useEffect, useState } from "react";
-import { ComponentDetails, components } from "@/lib/constants";
+import { components } from "@/lib/constants";
 
-const Page = ({ params }: { params: Promise<{ slug: string[] }> }) => {
-  const { slug } = await params;
-  const [comp, setComp] = useState<null | ComponentDetails>(null);
+type PageProps = {
+  params: Promise<{
+    slug: string[];
+  }>;
+};
+
+const Page = ({ params }: PageProps) => {
+  const { slug } = React.use(params);
+
+  const [comp, setComp] = useState<ComponentDetails | null>(null);
 
   useEffect(() => {
-    const res = components[slug];
-    if (res) setComp(res);
-    else setComp(null);
+    const res = components[slug.join("/")];
+    setComp(res ?? null);
   }, [slug]);
 
   if (!comp) return null;
+
   return (
     <div className="flex flex-col min-h-screen mt-20">
       <Header title={comp.title} excerpt={comp.excerpt} />
@@ -30,7 +38,6 @@ const Page = ({ params }: { params: Promise<{ slug: string[] }> }) => {
         code={comp.sections.installation.code}
       />
       <Usage code={comp.sections.usage.code} />
-
       <Example examples={comp.sections.example} />
     </div>
   );
