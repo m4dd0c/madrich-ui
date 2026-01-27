@@ -2,7 +2,7 @@ import React from "react";
 import ButtonDemo from "../renders/component/ButtonDemo";
 
 const components: ComponentsMap = {
-  accordion: {
+  Accordion: {
     title: "Accordion",
     excerpt:
       "A vertically stacked set of interactive headings that each reveal a section of content.",

@@ -13,7 +13,7 @@ interface CLI {
 
 const Installation = ({ cli, code }: { cli: CLI; code: string }) => {
   const [activeMain, setActiveMain] = useState<"cli" | "manual">("cli");
-  const [activeCli, setActiveCli] = useState("pnpm");
+  const [activeCli, setActiveCli] = useState<keyof CLI>("pnpm");
 
   return (
     <div className="w-3xl mt-6 font-grotesk">
@@ -42,12 +42,12 @@ const Installation = ({ cli, code }: { cli: CLI; code: string }) => {
         {activeMain === "cli" && (
           <div className="w-full">
 
-           
+
             <div className="grid grid-cols-4 border-b-2 border-foreground w-full">
               {Object.keys(cli).map((tool) => (
                 <button
                   key={tool}
-                  onClick={() => setActiveCli(tool)}
+                  onClick={() => setActiveCli(tool as keyof CLI)}
                   className={`py-2 font-semibold border-r-2 border-foreground last:border-r-0
           ${activeCli === tool ? "bg-[#BC96D4]" : "bg-background"}`}
                 >
@@ -56,7 +56,7 @@ const Installation = ({ cli, code }: { cli: CLI; code: string }) => {
               ))}
             </div>
 
-            
+
             <div className="bg-black p-4 relative w-full">
               <button
                 onClick={() => navigator.clipboard.writeText(cli[activeCli])}
@@ -77,7 +77,7 @@ const Installation = ({ cli, code }: { cli: CLI; code: string }) => {
             <button
               onClick={() =>
                 navigator.clipboard.writeText(
-                 code
+                  code
                 )
               }
               className="absolute right-3 top-3 bg-[#BC96D4] px-2 py-1 text-xs font-bold rounded"

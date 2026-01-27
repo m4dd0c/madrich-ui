@@ -30,9 +30,9 @@ const Header = () => {
   const { theme, setTheme } = useTheme();
   return (
     <>
-      <div className="fixed bg-[#BC96D4] z-[100] w-full h-18 font-grotesk flex items-center justify-around p-4 shadow-lg ">
+      <div className="fixed  shadow-md z-[100] w-full h-18 font-grotesk flex items-center justify-between p-4  bg-background border-b-2 border-foreground">
         <div className="flex items-center space-x-10">
-          <h1 className="text-2xl bg-background font-bold cursor-pointer ring ring-foreground dark:ring-neutral-200 p-2 shadow-neo">
+          <h1 className="text-2xl bg-background font-bold cursor-pointer ring ring-foreground  p-2 shadow-neo rounded-sm">
             Madrich UI
           </h1>
           <div className="flex items-center space-x-4 font-medium text-lg text-foreground">
@@ -48,7 +48,7 @@ const Header = () => {
           <div className="flex items-center space-x-6">
             <Link
               href="#"
-              className="cursor-pointer bg-background ring ring-foreground p-2 shadow-neo size-[33px] grid place-items-center"
+              className="cursor-pointer bg-background ring ring-foreground p-2 shadow-neo size-[33px] grid place-items-center rounded-sm"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@ const Header = () => {
             </Link>
             <Link
               href="#"
-              className="cursor-pointer bg-background ring ring-foreground p-2 shadow-neo size-[33px]"
+              className="cursor-pointer bg-background ring ring-foreground p-2 shadow-neo size-[33px] grid place-items-center rounded-sm"
             >
               <svg
                 role="img"
@@ -88,7 +88,7 @@ const Header = () => {
             </Link>
           </div>
 
-          <div className="flex items-center bg-background  space-x-2 border border-foreground h-[34px]  pl-2 shadow-neo">
+          <div className="flex items-center bg-background space-x-2 border border-foreground h-[34px] pl-2 shadow-neo rounded-sm overflow-hidden">
             <Search />
             <input
               className="outline-none"
@@ -99,7 +99,7 @@ const Header = () => {
 
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="transition-all relative cursor-pointer bg-background ring ring-foreground p-2 text-foreground shadow-neo size-[33px]"
+            className="transition-all relative cursor-pointer bg-background ring ring-foreground p-2 text-foreground shadow-neo size-[33px] rounded-sm flex items-center justify-center"
           >
             {theme === "dark" ? (
               <Sun width={18} height={18} />
@@ -109,8 +109,6 @@ const Header = () => {
           </button>
         </div>
       </div>
-
-      <div className="z-50 fixed mt-18 h-1 w-full bg-foreground"></div>
     </>
   );
 };

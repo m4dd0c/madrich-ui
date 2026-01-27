@@ -5,7 +5,7 @@ import { useState } from "react";
 import RenderCode from "./RenderCode";
 import { Component } from "react";
 
-const Preview = ({ render, code }: { render: ComponentType; code: string }) => {
+const Preview = ({ render: RenderComponent, code }: { render: ComponentType; code: string }) => {
   const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
 
   return (
@@ -31,19 +31,16 @@ const Preview = ({ render, code }: { render: ComponentType; code: string }) => {
         </button>
       </div>
 
-     
-      <div className="flex-1 overflow-y-auto  scrollbar-hide bg-grid flex items-center justify-center relative">
 
+      <div className="flex-1 overflow-y-auto  scrollbar-hide bg-grid flex items-center justify-center relative">
         {activeTab === "preview" && (
           <div className="w-full flex items-center justify-center">
-            {render()}
+            <RenderComponent />
           </div>
         )}
 
         {activeTab === "code" && (
           <div className="relative w-full h-full">
-
-           
             <button
               onClick={() => navigator.clipboard.writeText(code)}
               className="absolute top-3 right-3 bg-[#BC96D4] px-2 py-1 text-xs font-bold rounded"
