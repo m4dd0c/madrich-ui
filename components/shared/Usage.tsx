@@ -12,7 +12,7 @@ const Usage = ({ code }: { code: string[] }) => {
                 code[0]
               )
             }
-            className="absolute right-3 top-3 bg-[#BC96D4] px-2 py-1 text-xs font-bold rounded"
+            className="absolute right-3 top-3 bg-hero px-2 py-1 text-xs font-bold rounded"
           >
             Copy
           </button>
@@ -29,7 +29,7 @@ const Usage = ({ code }: { code: string[] }) => {
               code[1]
             )
           }
-          className="absolute right-3 top-3 bg-[#BC96D4] px-2 py-1 text-xs font-bold rounded"
+          className="absolute right-3 top-3 bg-hero px-2 py-1 text-xs font-bold rounded"
         >
           Copy
         </button>

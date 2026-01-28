@@ -2,8 +2,7 @@
 
 import React, { ComponentType } from "react";
 import { useState } from "react";
-import RenderCode from "./RenderCode";
-import { Component } from "react";
+
 
 const Preview = ({ render: RenderComponent, code }: { render: ComponentType; code: string }) => {
   const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
@@ -15,7 +14,7 @@ const Preview = ({ render: RenderComponent, code }: { render: ComponentType; cod
         <button
           onClick={() => setActiveTab("preview")}
           className={`w-1/2 py-3 font-bold text-center border-r-2 border-foreground
-      ${activeTab === "preview" ? "bg-[#BC96D4] text-black" : "bg-white text-black"}
+      ${activeTab === "preview" ? "bg-hero text-black" : "bg-white text-black"}
       `}
         >
           Preview
@@ -24,7 +23,7 @@ const Preview = ({ render: RenderComponent, code }: { render: ComponentType; cod
         <button
           onClick={() => setActiveTab("code")}
           className={`w-1/2 py-3 font-bold text-center
-      ${activeTab === "code" ? "bg-[#BC96D4] text-black" : "bg-white text-black"}
+      ${activeTab === "code" ? "bg-hero text-black" : "bg-white text-black"}
       `}
         >
           Code
@@ -43,7 +42,7 @@ const Preview = ({ render: RenderComponent, code }: { render: ComponentType; cod
           <div className="relative w-full h-full">
             <button
               onClick={() => navigator.clipboard.writeText(code)}
-              className="absolute top-3 right-3 bg-[#BC96D4] px-2 py-1 text-xs font-bold rounded"
+              className="absolute top-3 right-3 bg-hero px-2 py-1 text-xs font-bold rounded"
             >
               Copy
             </button>
