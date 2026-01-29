@@ -11,7 +11,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
         <div className="flex flex-col w-full">
           <ComponentHeader />
           {/* center div */}
-          <article className="flex-1 h-full overflow-y-auto pt-18">{children}</article>
+          <article className="flex-1 h-full overflow-y-auto">{children}</article>
         </div>
       </main>
       <Footer />

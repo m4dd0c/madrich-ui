@@ -8,7 +8,7 @@ const Preview = ({ render: RenderComponent, code }: { render: ComponentType; cod
   const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
 
   return (
-    <div className="w-full shadow-neo font-grotesk mt-6 max-w-3xl h-[350px] border-2 border-foreground bg-background flex flex-col">
+    <div className="w-full shadow-neo font-grotesk mt-6 max-w-4xl h-[350px] border-2 border-foreground bg-background flex flex-col">
 
       <div className="flex border-b-2 border-foreground shrink-0">
         <button
@@ -47,7 +47,7 @@ const Preview = ({ render: RenderComponent, code }: { render: ComponentType; cod
               Copy
             </button>
 
-            <pre className="bg-black text-white p-6 text-sm w-full h-full overflow-x-auto scrollbar-hide">
+            <pre className="bg-black text-white pl-6 text-md w-full h-full overflow-x-auto scrollbar-hide">
               {code}
             </pre>
           </div>

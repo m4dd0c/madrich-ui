@@ -10,7 +10,7 @@ import { useTheme } from "next-themes";
 const links = [
   {
     name: "Components",
-    href: "/components",
+    href: "/components/Accordion",
   },
   {
     name: "Docs",

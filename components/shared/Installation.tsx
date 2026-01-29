@@ -16,7 +16,7 @@ const Installation = ({ cli, code }: { cli: CLI; code: string }) => {
   const [activeCli, setActiveCli] = useState<keyof CLI>("pnpm");
 
   return (
-    <div className="w-3xl mt-6 font-grotesk">
+    <div className="w-4xl mt-6 font-grotesk">
       <h2 className="text-2xl font-bold font-grotesk">Installation</h2>
       <div className="border-2 shadow-neo mt-6 border-foreground bg-background">
         <div className="flex border-b-2 border-foreground">
@@ -60,7 +60,7 @@ const Installation = ({ cli, code }: { cli: CLI; code: string }) => {
               >
                 Copy
               </button>
-              <pre className="text-white text-sm w-full overflow-x-auto">
+              <pre className="text-white text-md w-full overflow-x-auto">
                 {cli[activeCli]}
               </pre>
             </div>
@@ -68,7 +68,7 @@ const Installation = ({ cli, code }: { cli: CLI; code: string }) => {
         )}
 
         {activeMain === "manual" && (
-          <div className="h-[296px] bg-black overflow-y-auto scrollbar-hide p-6 relative">
+          <div className="h-[296px] bg-black overflow-y-auto scrollbar-hide relative">
             <button
               onClick={() =>
                 navigator.clipboard.writeText(
@@ -80,7 +80,7 @@ const Installation = ({ cli, code }: { cli: CLI; code: string }) => {
               Copy
             </button>
 
-            <pre className="text-white text-sm ">
+            <pre className="text-white pl-6 text-md ">
               {code}
             </pre>
           </div>

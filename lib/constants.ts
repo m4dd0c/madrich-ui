@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonDemo from "../renders/component/ButtonDemo";
+import AccordionDemo from "@/renders/component/AccordionDemo";
 
 const components: ComponentsMap = {
   Accordion: {
@@ -8,7 +8,7 @@ const components: ComponentsMap = {
       "A vertically stacked set of interactive headings that each reveal a section of content.",
     sections: {
       preview: {
-        render: ButtonDemo,
+        render: AccordionDemo,
         code: `
 import {
   Accordion,
@@ -131,7 +131,7 @@ export { Accordion, AccordionItem, AccordionTrigger, AccordionContent }
       },
       example: {
         default: {
-          render: ButtonDemo,
+          render: AccordionDemo,
           code: `
 import { Button } from "@/components/ui/button"
 
