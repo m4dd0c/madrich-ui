@@ -16,10 +16,10 @@ const LeftSidebar = () => {
           {componentsList.map((component) => (
             <Link
               className="text-xl px-3 py-1 hover:bg-[#161616] hover:text-hero transition-all duration-150 capitalize font-semibold"
-              key={component}
-              href={`/components/${component}`}
+              key={component.slug}
+              href={`/components/${component.slug}`}
             >
-              {component}
+              {component.title}
             </Link>
           ))}
         </div>

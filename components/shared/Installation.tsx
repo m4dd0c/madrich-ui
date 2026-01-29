@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useState } from "react";
+import RenderCode from "./RenderCode";
 
 
 interface CLI {
@@ -53,37 +54,12 @@ const Installation = ({ cli, code }: { cli: CLI; code: string }) => {
             </div>
 
 
-            <div className="bg-black p-4 relative w-full">
-              <button
-                onClick={() => navigator.clipboard.writeText(cli[activeCli])}
-                className="absolute right-3 top-3 bg-hero px-2 py-1 text-xs font-bold rounded"
-              >
-                Copy
-              </button>
-              <pre className="text-white text-md w-full overflow-x-auto">
-                {cli[activeCli]}
-              </pre>
-            </div>
+            <RenderCode data={cli[activeCli]} />
           </div>
         )}
 
         {activeMain === "manual" && (
-          <div className="h-[296px] bg-black overflow-y-auto scrollbar-hide relative">
-            <button
-              onClick={() =>
-                navigator.clipboard.writeText(
-                  code
-                )
-              }
-              className="absolute right-3 top-3 bg-hero px-2 py-1 text-xs font-bold rounded"
-            >
-              Copy
-            </button>
-
-            <pre className="text-white pl-6 text-md ">
-              {code}
-            </pre>
-          </div>
+          <RenderCode data={code} />
         )}
       </div>
     </div>

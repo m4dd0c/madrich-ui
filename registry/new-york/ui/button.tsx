@@ -12,11 +12,11 @@ const buttonVariants = cva(
       variant: {
         default:
           "text-main-foreground bg-hero border-2 border-foreground shadow-neo",
-        noShadow: "text-main-foreground bg-main border-2 border-border",
+        noShadow: "text-foreground bg-background border-2 border-foreground",
         neutral:
           "bg-secondary-background text-foreground border-2 border-foreground shadow-neo",
         reverse:
-          "text-main-foreground bg-main border-2 border-border shadow-neo",
+          "text-main-foreground bg-main border-2 border-foreground shadow-neo",
       },
       size: {
         default: "h-10 px-4 py-2",

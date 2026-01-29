@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Example from "@/components/shared/Example";
 import Header from "@/components/shared/Header";
 import Installation from "@/components/shared/Installation";
@@ -20,14 +20,20 @@ const Page = ({ params }: PageProps) => {
   const [comp, setComp] = useState<ComponentDetails | null>(null);
 
   useEffect(() => {
-    const res = components[slug.join("/")];
+    const slugString = slug.join("/")
+    // alert-dialog to AlertDialog
+    const slugStringToComponentName = () => {
+      return slugString.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join("")
+    }
+
+    const res = components[slugStringToComponentName()]
     setComp(res ?? null);
   }, [slug]);
 
   if (!comp) return null;
 
   return (
-    <div className="flex flex-col min-h-screen items-center  mt-12 gap-4">
+    <div className="flex flex-col min-h-screen items-center mt-12 mb-12 gap-4">
       <Header title={comp.title} excerpt={comp.excerpt} />
       <Preview
         render={comp.sections.preview.render}

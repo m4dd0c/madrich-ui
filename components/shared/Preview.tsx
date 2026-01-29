@@ -2,13 +2,13 @@
 
 import React, { ComponentType } from "react";
 import { useState } from "react";
-
+import RenderCode from "./RenderCode";
 
 const Preview = ({ render: RenderComponent, code }: { render: ComponentType; code: string }) => {
   const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
 
   return (
-    <div className="w-full shadow-neo font-grotesk mt-6 max-w-4xl h-[350px] border-2 border-foreground bg-background flex flex-col">
+    <div className="w-full shadow-neo font-grotesk mt-4 max-w-4xl h-[350px] border-2 border-foreground bg-background flex flex-col">
 
       <div className="flex border-b-2 border-foreground shrink-0">
         <button
@@ -31,26 +31,15 @@ const Preview = ({ render: RenderComponent, code }: { render: ComponentType; cod
       </div>
 
 
-      <div className="flex-1 overflow-y-auto  scrollbar-hide bg-grid flex items-center justify-center relative">
+      <div className={`flex-1 overflow-y-auto scrollbar-hide bg-grid flex relative ${activeTab === 'preview' ? 'items-center justify-center' : ''}`}>
         {activeTab === "preview" && (
           <div className="w-full flex items-center justify-center">
             <RenderComponent />
           </div>
-        )}
+        )}  
 
         {activeTab === "code" && (
-          <div className="relative w-full h-full">
-            <button
-              onClick={() => navigator.clipboard.writeText(code)}
-              className="absolute top-3 right-3 bg-hero px-2 py-1 text-xs font-bold rounded"
-            >
-              Copy
-            </button>
-
-            <pre className="bg-black text-white pl-6 text-md w-full h-full overflow-x-auto scrollbar-hide">
-              {code}
-            </pre>
-          </div>
+          <RenderCode data={code} />
         )}
 
       </div>

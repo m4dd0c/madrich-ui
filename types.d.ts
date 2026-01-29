@@ -1,5 +1,6 @@
 interface ComponentDetails {
     title: string;
+    slug: string;
     excerpt: string;
     sections: {
         preview: {
