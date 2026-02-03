@@ -8,7 +8,7 @@ const Preview = ({ render: RenderComponent, code }: { render: ComponentType; cod
   const [activeTab, setActiveTab] = useState<"preview" | "code">("preview");
 
   return (
-    <div className="w-full shadow-neo font-grotesk mt-4 max-w-4xl h-[350px] border-2 border-foreground bg-background flex flex-col">
+    <div className="w-full shadow-neo font-grotesk max-w-4xl h-[350px] border-2 border-foreground bg-background flex flex-col">
 
       <div className="flex border-b-2 border-foreground shrink-0">
         <button
@@ -33,7 +33,7 @@ const Preview = ({ render: RenderComponent, code }: { render: ComponentType; cod
 
       <div className={`flex-1 overflow-y-auto scrollbar-hide bg-grid flex relative ${activeTab === 'preview' ? 'items-center justify-center' : ''}`}>
         {activeTab === "preview" && (
-          <div className="w-full flex items-center justify-center">
+          <div className="w-full flex items-center justify-center h-full">
             <RenderComponent />
           </div>
         )}  
