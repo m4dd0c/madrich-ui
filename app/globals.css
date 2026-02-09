@@ -139,3 +139,20 @@
     display: none; /* Chrome, Safari and Opera */
   }
 }
+
+/* Neo-Brutal Bounce Animation - plays once on page load */
+@keyframes neoBrutalBounce {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    box-shadow: 8px 8px 0px 0px #000;
+  }
+  50% {
+    transform: translate(-8px, -8px) rotate(-2deg);
+    box-shadow: 16px 16px 0px 0px #000;
+    background-color: #FFC900;
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    box-shadow: 8px 8px 0px 0px #000;
+  }
+}
