@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Menu, Moon, Search, Sun, X } from "lucide-react";
-import { useTheme } from "next-themes";
+import { Menu, X } from "lucide-react";
 import { Mode, SearchBar, Social } from "./Header";
 
 interface ComponentHeaderProps {
@@ -27,7 +26,7 @@ const ComponentHeader = ({
               {sidebarOpen ? (
                 <X className="w-5 h-5" />
               ) : (
-                <Menu className="w-5 h-5" />
+                <Menu className="w-5 h-5 " size={20} strokeWidth={3} />
               )}
             </button>
           )}

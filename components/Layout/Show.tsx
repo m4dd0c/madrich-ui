@@ -130,9 +130,9 @@ function Show() {
             </div>
             <div className="md:w-1/2 space-y-6 flex flex-col justify-between">
               <div className="bg-white p-6 border-2 border-foreground shadow-[4px_4px_0px_0px_#000] flex flex-col items-center justify-center gap-4">
-                <AvatarGroupCountExample />
+                <AvatarGroupCountExample/>
                 <p className="text-center text-sm font-bold text-gray-500">
-                  +2,400 happy developers
+                  happy developers
                 </p>
               </div>
             </div>

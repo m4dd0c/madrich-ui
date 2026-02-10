@@ -18,7 +18,7 @@ import { InputWithLabelDemo } from "@/renders/component/InputDemo";
 import { IoIosAlert } from "react-icons/io";
 import { useState } from "react";
 
-// Profile data - centralized for easy management
+
 const profiles = [
   { name: "Sarah Wilson", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop" },
   { name: "James Miller", image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=150&h=150&fit=crop" },
@@ -29,7 +29,6 @@ const profiles = [
 ];
 
 const Hero = () => {
-  // State for selected profile - default to Michael Brown (index 3)
   const [selectedProfile, setSelectedProfile] = useState(profiles[3]);
 
   return (
@@ -60,9 +59,10 @@ const Hero = () => {
           </div>
 
           {/* Bottom Left Avatars */}
-          <div className="flex justify-between mr-16">
+          <div className="flex justify-between items-center mr-16">
             <div className="flex relative">
-              <div className="w-30 h-30 border-3 border-background rounded-full hover:z-20 hover:scale-[1.05] transition-all duration-300 bg-white">
+              {/* Avatar 1 */}
+              <div className="group relative w-30 h-30 border-3 border-background rounded-full hover:z-20 hover:scale-[1.05] transition-all duration-300 bg-white cursor-pointer">
                 <Image
                   src="/image/one.png"
                   alt="hero"
@@ -71,8 +71,20 @@ const Hero = () => {
                   quality={100}
                   className="h-full w-full rounded-full object-cover object-top"
                 />
+                {/* Hover Card */}
+                <div className="absolute -top-17 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto z-30">
+                  <div className="bg-background border-2 border-foreground shadow-neo p-2 px-3 whitespace-nowrap">
+                    <h3 className="font-semibold text-sm">Harish Kumar</h3>
+                    <Link href="https://github.com/m4dd0c" target="_blank" className="text-xs text-hero font-medium flex items-center gap-1 hover:underline">
+                      <CodeXml className="size-3" /> github.com
+                    </Link>
+                  </div>
+                  <div className="w-3 h-3 bg-background border-r-2 border-b-2 border-foreground rotate-45 absolute -bottom-1.5 left-1/2 -translate-x-1/2" />
+                </div>
               </div>
-              <div className="absolute left-25 w-30 h-30 border-3 border-background bg-white hover:scale-[1.05] transition-all duration-300 rounded-full z-10">
+
+              {/* Avatar 2 */}
+              <div className="group absolute left-25 w-30 h-30 border-3 border-background bg-white hover:scale-[1.05] transition-all duration-300 rounded-full z-10 cursor-pointer">
                 <Image
                   src="/image/icon4.jpg"
                   alt="hero"
@@ -80,6 +92,16 @@ const Hero = () => {
                   height={100}
                   className="h-full w-full rounded-full object-cover object-top"
                 />
+                {/* Hover Card */}
+                <div className="absolute -top-17 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto z-30">
+                  <div className="bg-background border-2 border-foreground shadow-neo p-2 px-3 whitespace-nowrap">
+                    <h3 className="font-semibold text-sm">John Snow</h3>
+                    <Link href="https://github.com/johnsnow" target="_blank" className="text-xs text-hero font-medium flex items-center gap-1 hover:underline">
+                      <CodeXml className="size-3" /> github.com/johnsnow
+                    </Link>
+                  </div>
+                  <div className="w-3 h-3 bg-background border-r-2 border-b-2 border-foreground rotate-45 absolute -bottom-1.5 left-1/2 -translate-x-1/2" />
+                </div>
               </div>
             </div>
 

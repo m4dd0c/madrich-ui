@@ -51,6 +51,14 @@ const features = [
     description: "Bold fonts that make a statement.",
     icon: Type,
     color: "bg-[#FF7051]",
+    showTypography: true,
+  },
+  {
+    title: "Lightning Fast",
+    description:
+      "Zero-dependency components with optimized rendering. No bloat, no lag — just speed.",
+    icon: Zap,
+    color: "bg-[#FFC900]",
   },
 ];
 
