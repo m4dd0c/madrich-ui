@@ -7,6 +7,7 @@ import { Moon, Sun } from "lucide-react";
 
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
+import SearchCommand from "./SearchCommand";
 
 const links = [
   {
@@ -29,6 +30,8 @@ const links = [
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -38,6 +41,18 @@ const Header = () => {
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // ⌘K / Ctrl+K shortcut to open search
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setIsSearchOpen(true);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   useEffect(() => {
@@ -53,10 +68,10 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed z-[100] w-full h-16 md:h-[72px] font-grotesk flex items-center justify-between px-4 md:px-8 bg-background border-b-[3px] border-foreground shadow-[0_4px_0_0_hsl(var(--foreground))]">
+      <header className="fixed z-[100] w-full h-18 md:h-[85px] font-grotesk flex items-center justify-between px-4 md:px-8 bg-background border-b-[3px] border-foreground shadow-[0_4px_0_0_hsl(var(--foreground))]">
         <div className="flex items-center">
           <Link href="/">
-            <h1 className="text-lg md:text-xl bg-background font-black cursor-pointer border-[3px] border-foreground p-1.5 px-3 shadow-neo hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-150 uppercase tracking-wide">
+            <h1 className="text-md  md:text-lg lg:text-xl bg-background font-bold  cursor-pointer border-[3px] border-foreground p-1.5 px-3 shadow-neo hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-150  tracking-wide">
               Madrich UI
             </h1>
           </Link>
@@ -76,14 +91,21 @@ const Header = () => {
         </nav>
 
         {/* Desktop Right Section */}
-        <div className="hidden md:flex items-center space-x-3 lg:space-x-4">
+        <div className="hidden md:flex items-center space-x-4 lg:space-x-4">
           <Social />
-          <SearchBar className="hidden lg:flex w-[200px] xl:w-[280px]" />
+          <SearchBar className="hidden lg:flex w-[200px] xl:w-[280px]" onClick={() => setIsSearchOpen(true)} />
           <Mode />
         </div>
 
         {/* Mobile Right Section */}
         <div className="flex md:hidden items-center space-x-3">
+          <button
+            onClick={() => setIsSearchOpen(true)}
+            className="cursor-pointer border-[3px] border-foreground p-2 text-foreground bg-background shadow-neo size-[38px] flex items-center justify-center hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-150"
+            aria-label="Search"
+          >
+            <Search size={25} strokeWidth={3.5} />
+          </button>
           <Mode />
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -132,7 +154,7 @@ const Header = () => {
         aria-hidden="true"
       />
 
-      {/* Mobile Navigation Drawer - Neobrutalism Style */}
+      {/* Mobile Navigation Drawer */}
       <nav
         className={cn(
           "fixed top-16 right-0 w-[300px] sm:w-[340px] h-[calc(100vh-64px)] bg-background border-l-[3px] border-foreground z-[95] md:hidden transition-transform duration-300 ease-out overflow-y-auto",
@@ -140,9 +162,6 @@ const Header = () => {
         )}
       >
         <div className="flex flex-col p-6 space-y-4">
-          <div className="mb-5">
-            <SearchBar className="w-full shadow-neo rounded-sm" />
-          </div>
 
           <div className="space-y-3">
             {links.map((link, index) => (
@@ -180,6 +199,9 @@ const Header = () => {
           </div>
         </div>
       </nav>
+
+        {/* Global Search Command Dialog */}
+        <SearchCommand open={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
   );
 };
@@ -223,9 +245,10 @@ export const Mode = () => {
 
 export const Social = () => {
   return (
-    <div className="flex items-center space-x-5 md:space-x-4">
+    <div className="flex items-center space-x-4">
       <Link
-        href="#"
+        href="https://x.com/h4rich_"
+        target="_blank"
         className="cursor-pointer border-[3px] bg-background border-foreground p-2 shadow-neo size-[38px] md:size-[42px] grid place-items-center hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-150"
         aria-label="Twitter"
       >
@@ -245,7 +268,8 @@ export const Social = () => {
         </svg>
       </Link>
       <Link
-        href="#"
+        href="https://github.com/h4rich"
+        target="_blank"
         className="cursor-pointer bg-background border-[3px] border-foreground p-2 shadow-neo size-[38px] md:size-[42px] grid place-items-center hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-150"
         aria-label="GitHub"
       >
@@ -270,20 +294,19 @@ export const Social = () => {
   );
 };
 
-export const SearchBar = ({ className }: { className?: string }) => {
+
+
+export const SearchBar = ({ className, onClick }: { className?: string; onClick?: () => void }) => {
   return (
     <div
+      onClick={onClick}
       className={cn(
-        "flex items-center justify-between bg-background space-x-2 border-[3px] border-foreground h-[38px] md:h-[42px] px-3 shadow-neo overflow-hidden hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-150 focus-within:shadow-none focus-within:translate-x-[3px] focus-within:translate-y-[3px]",
+        "flex items-center justify-between bg-background space-x-2 border-[3px] border-foreground h-[38px] md:h-[42px] px-3 shadow-neo overflow-hidden hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-150 cursor-pointer",
         className
       )}
     >
       <Search size={20} className="flex-shrink-0 text-foreground" strokeWidth={2.5} />
-      <input
-        className="outline-none w-full bg-transparent text-foreground placeholder:text-foreground/60 font-medium"
-        type="text"
-        placeholder="Search..."
-      />
+      <span className="w-full text-foreground/60 font-medium select-none">Search...</span>
       <kbd className="hidden xl:flex items-center gap-1 px-2 py-0.5 text-xs font-bold bg-foreground text-background border border-foreground">
         ⌘K
       </kbd>

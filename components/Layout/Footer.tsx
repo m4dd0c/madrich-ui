@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { RiTwitterXLine } from "react-icons/ri";
 import { FaGithub } from "react-icons/fa";
+import { CreatorCard } from "./Hero";
+import { Social } from "./Header";
 
 const links = [
   {
@@ -25,7 +27,7 @@ const Footer = () => {
         <div className="flex flex-col justify-between gap-10">
           <div className="space-y-4">
             <Link href="/" className="inline-block">
-              <h1 className="text-xl md:text-2xl bg-background font-black cursor-pointer border-[3px] border-foreground p-1.5 px-3 shadow-neo hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-150 uppercase tracking-wide">
+              <h1 className="text-xl md:text-2xl bg-background font-black cursor-pointer border-[3px] border-foreground p-1.5 px-3 shadow-neo hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-150  tracking-wide">
                 Madrich UI
               </h1>
             </Link>
@@ -35,27 +37,7 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center gap-6">
-            <div className="flex relative">
-              <div className="w-30 h-30 border-3 border-background rounded-full hover:z-20 hover:scale-[1.1] transition-all duration-300 bg-white">
-                <Image
-                  src="/image/one.png"
-                  alt="hero"
-                  width={100}
-                  height={100}
-                  quality={100}
-                  className="h-full w-full rounded-full object-cover object-top"
-                />
-              </div>
-              <div className="absolute left-25 w-30 h-30 border-3 border-background bg-white hover:scale-[1.1] transition-all duration-300 rounded-full z-10">
-                <Image
-                  src="/image/icon4.jpg"
-                  alt="hero"
-                  width={100}
-                  height={100}
-                  className="h-full w-full rounded-full object-cover object-top"
-                />
-              </div>
-            </div>
+          <CreatorCard />
           </div>
         </div>
 
@@ -81,20 +63,7 @@ const Footer = () => {
             <h3 className="text-2xl font-black uppercase border-b-4 border-foreground pb-2 inline-block w-fit">
               Socials
             </h3>
-            <div className="flex gap-4">
-              <Link
-                href="#"
-                className="bg-white p-3 border-2 border-foreground shadow-[4px_4px_0px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#000] transition-all"
-              >
-                <FaGithub className="w-6 h-6" />
-              </Link>
-              <Link
-                href="#"
-                className="bg-white p-3 border-2 border-foreground shadow-[4px_4px_0px_0px_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_#000] transition-all"
-              >
-                <RiTwitterXLine className="w-6 h-6" />
-              </Link>
-            </div>
+            <Social />
           </div>
         </div>
       </div>
