@@ -2,7 +2,7 @@ import { Box, Code, Layers, MousePointer2 } from "lucide-react";
 import { Button } from "@/registry/new-york/ui/button";
 
 import AccordionDemo from "@/renders/component/AccordionDemo";
-import { AvatarGroupCountExample } from "@/renders/component/AvatarDemo";
+import { AvatarGroupExample } from "@/renders/component/AvatarDemo";
 import CheckboxDemo from "@/renders/component/CheckboxDemo";
 import ImageCardDemo from "@/renders/component/ImageCardDemo";
 import SelectDemo from "@/renders/component/SelectDemo";
@@ -130,7 +130,7 @@ function Show() {
             </div>
             <div className="md:w-1/2 space-y-6 flex flex-col justify-between">
               <div className="bg-white p-6 border-2 border-foreground shadow-[4px_4px_0px_0px_#000] flex flex-col items-center justify-center gap-4">
-                <AvatarGroupCountExample/>
+                <AvatarGroupExample/>
                 <p className="text-center text-sm font-bold text-gray-500">
                   happy developers
                 </p>

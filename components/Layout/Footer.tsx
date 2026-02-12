@@ -1,9 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
-import { RiTwitterXLine } from "react-icons/ri";
-import { FaGithub } from "react-icons/fa";
-import { CreatorCard } from "./Hero";
 import { Social } from "./Header";
+import { CreatorCard } from "./CreatorCard";
 
 const links = [
   {

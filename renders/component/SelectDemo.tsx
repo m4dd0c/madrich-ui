@@ -19,7 +19,7 @@ import {
 const SelectDemo = () => {
   return (
     <Select>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[200px]">
         <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>
       <SelectContent>
@@ -41,7 +41,7 @@ export default SelectDemo;
 export function SelectDemo2() {
   return (
     <Select>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[200px]">
         <SelectValue placeholder="Large List" />
       </SelectTrigger>
       <SelectContent>
@@ -58,7 +58,7 @@ export function SelectDemo2() {
 export function SelectDemo3() {
   return (
     <Select disabled>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[200px]">
         <SelectValue placeholder="Disabled" />
       </SelectTrigger>
       <SelectContent>
@@ -77,7 +77,7 @@ export function SelectDemo3() {
 export function SelectDemo4() {
   return (
     <Select>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[200px]">
         <SelectValue
           placeholder={
             <>

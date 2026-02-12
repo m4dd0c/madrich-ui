@@ -25,6 +25,8 @@ import SelectDemo, {
 } from "@/renders/component/SelectDemo";
 import SwitchDemo from "@/renders/component/SwitchDemo";
 import TextareaDemo from "@/renders/component/TextareaDemo";
+import ProfileSelectorDemo from "@/renders/component/ProfileSelectorDemo";
+import TooltipCardDemo from "@/renders/component/TooltipCardDemo";
 
 const components: ComponentsMap = {
   Accordion: {
@@ -454,13 +456,13 @@ export default AvatarDemo
           bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/accordion.json",
         },
         code: `
-"use client"
+"use client";
 
-import * as AvatarPrimitive from "@radix-ui/react-avatar"
+import * as AvatarPrimitive from "@radix-ui/react-avatar";
 
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Avatar({
   className,
@@ -475,7 +477,7 @@ function Avatar({
       )}
       {...props}
     />
-  )
+  );
 }
 
 function AvatarImage({
@@ -488,9 +490,8 @@ function AvatarImage({
       className={cn("aspect-square size-full", className)}
       {...props}
     />
-  )
+  );
 }
-
 
 function AvatarGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -498,14 +499,12 @@ function AvatarGroup({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="avatar-group"
       className={cn(
         "*:data-[slot=avatar]:ring-background group/avatar-group flex -space-x-2 *:data-[slot=avatar]:ring-2",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
-
-
 
 function AvatarFallback({
   className,
@@ -520,7 +519,7 @@ function AvatarFallback({
       )}
       {...props}
     />
-  )
+  );
 }
 
 function AvatarGroupCount({
@@ -532,14 +531,16 @@ function AvatarGroupCount({
       data-slot="avatar-group-count"
       className={cn(
         "bg-hero text-foreground ring-background relative flex size-12 shrink-0 items-center justify-center rounded-full text-sm ring-2 group-has-data-[size=lg]/avatar-group:size-10 group-has-data-[size=sm]/avatar-group:size-6 [&>svg]:size-4 group-has-data-[size=lg]/avatar-group:[&>svg]:size-5 group-has-data-[size=sm]/avatar-group:[&>svg]:size-3",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
-export { Avatar, AvatarImage,AvatarGroup, AvatarFallback, AvatarGroupCount }
+export { Avatar, AvatarImage, AvatarGroup, AvatarFallback, AvatarGroupCount };
+
+
 
         `,
       },
@@ -611,9 +612,22 @@ export function AvatarGroupCountExample() {
         />
         <AvatarFallback>ER</AvatarFallback>
       </Avatar>
-      <AvatarGroupCount>+3</AvatarGroupCount>
+      <Avatar>
+        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+      <Avatar>
+        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+
+      <Avatar>
+        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+      <AvatarGroupCount>+7</AvatarGroupCount>
     </AvatarGroup>
-  )
+  );
 }
 
 
@@ -647,23 +661,23 @@ export default function ButtonDemo() {
           bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/accordion.json",
         },
         code: `
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-base text-sm font-base ring-offset-white transition-all gap-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap cursor-pointer rounded-base text-sm font-base ring-offset-white transition-all gap-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 focus-visible:outline-hidden focus-visible:ring-2  focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default:
-          "text-main-foreground bg-hero border-2 border-foreground shadow-neo",
+          "text-main-foreground bg-hero border-2 border-foreground shadow-neo hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all duration-150",
         noShadow: "text-foreground bg-background border-2 border-foreground",
         neutral:
-          "bg-secondary-background text-foreground border-2 border-foreground shadow-neo",
+          "bg-secondary-background text-foreground border-2 border-foreground shadow-neo hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all duration-150",
         reverse:
           "text-main-foreground bg-main border-2 border-foreground shadow-neo",
       },
@@ -679,7 +693,7 @@ const buttonVariants = cva(
       size: "default",
     },
   },
-)
+);
 
 function Button({
   className,
@@ -689,9 +703,9 @@ function Button({
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
-    asChild?: boolean
+    asChild?: boolean;
   }) {
-  const Comp = asChild ? Slot : "button"
+  const Comp = asChild ? Slot : "button";
 
   return (
     <Comp
@@ -699,10 +713,11 @@ function Button({
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />
-  )
+  );
 }
 
-export { Button, buttonVariants }
+export { Button, buttonVariants };
+
 
         `,
       },
@@ -855,29 +870,34 @@ export default ImageCardDemo
           bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/accordion.json",
         },
         code: `
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 type Props = {
-  imageUrl: string
-  caption: string
-  className?: string
-}
+  imageUrl: string;
+  caption: string;
+  className?: string;
+};
 
 export default function ImageCard({ imageUrl, caption, className }: Props) {
   return (
     <figure
       className={cn(
-        "w-[250px] overflow-hidden rounded-base border-2 border-foreground font-base shadow-neo",
+        "w-[250px] overflow-hidden rounded-base border-2 border-foreground font-base shadow-neo hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all duration-150",
         className,
       )}
     >
-      <img className="w-full aspect-4/3 object-cover object-top " src={imageUrl} alt="image" />
+      <img
+        className="w-full aspect-4/3 object-cover object-top "
+        src={imageUrl}
+        alt="image"
+      />
       <figcaption className="border-t-2 text-main-foreground border-foreground p-4">
         {caption}
       </figcaption>
     </figure>
-  )
+  );
 }
+
 
 
         `,
@@ -929,9 +949,9 @@ export default InputDemo
           bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/accordion.json",
         },
         code: `
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
   return (
@@ -939,15 +959,16 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
       type={type}
       data-slot="input"
       className={cn(
-        "flex shadow-neo h-10 w-full rounded-base border-2 border-foreground bg-secondary-background selection:bg-main selection:text-main-foreground px-3 py-2 text-sm font-base text-foreground file:border-0 file:bg-transparent file:text-sm file:font-heading placeholder:text-foreground/50 focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-50",
+        "flex shadow-neo h-10 w-full rounded-base border-2 border-foreground hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all duration-150 bg-secondary-background selection:bg-main selection:text-main-foreground px-3 py-2 text-sm font-base text-foreground file:border-0 file:bg-transparent file:text-sm file:font-heading placeholder:text-foreground/50 focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
       {...props}
     />
-  )
+  );
 }
 
-export { Input }
+export { Input };
+
 
 
         `,
@@ -1050,27 +1071,23 @@ export  const InputWithButtonDemo = () => {
       preview: {
         render: ProgressDemo,
         code: `
-"use client"
+"use client";
 
-import * as React from "react"
-import { Progress } from "@/registry/new-york/ui/progress"
-
+import * as React from "react";
+import { Progress } from "@/registry/new-york/ui/progress";
 
 const ProgressDemo = () => {
-    const [progress, setProgress] = React.useState(13)
+  const [progress, setProgress] = React.useState(66);
 
-    React.useEffect(() => {
-        const timer = setTimeout(() => setProgress(66), 500)
-        return () => clearTimeout(timer)
-    }, [])
-    return (
-        <>
-            <Progress value={progress} className="w-[60%]" />
-        </>
-    )
-}
+  return (
+    <>
+      <Progress value={progress} onChange={setProgress} className="w-[400px]" />
+    </>
+  );
+};
 
-export default ProgressDemo
+export default ProgressDemo;
+
 
 
 
@@ -1084,40 +1101,87 @@ export default ProgressDemo
           bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/accordion.json",
         },
         code: `
-"use client"
+"use client";
 
-import * as ProgressPrimitive from "@radix-ui/react-progress"
+import * as React from "react";
 
-import * as React from "react"
+import { cn } from "@/lib/utils";
 
-import { cn } from "@/lib/utils"
-
-function Progress({
-  className,
-  value,
-  ...props
-}: React.ComponentProps<typeof ProgressPrimitive.Root> & {
-  value?: number
-}) {
-  return (
-    <ProgressPrimitive.Root
-      data-slot="progress"
-      className={cn(
-        "relative h-4 w-full overflow-hidden rounded-full  border-2 border-foreground bg-secondary-background",
-        className,
-      )}
-      {...props}
-    >
-      <ProgressPrimitive.Indicator
-        data-slot="progress-indicator"
-        className="h-full w-full flex-1 border-r-2 border-foreground bg-hero rounded-full transition-all"
-        style={{ transform: "translateX(-" + (100 - (value || 0)) + "%)" }}
-      />
-    </ProgressPrimitive.Root>
-  )
+interface ProgressProps {
+  value?: number;
+  onChange?: (value: number) => void;
+  className?: string;
 }
 
-export { Progress }
+function Progress({ className, value = 0, onChange, ...props }: ProgressProps) {
+  const trackRef = React.useRef<HTMLDivElement>(null);
+  const [dragging, setDragging] = React.useState(false);
+
+  const clamp = (val: number) => Math.max(0, Math.min(100, val));
+
+  const getValueFromEvent = (clientX: number) => {
+    if (!trackRef.current) return value;
+    const rect = trackRef.current.getBoundingClientRect();
+    const percent = ((clientX - rect.left) / rect.width) * 100;
+    return clamp(Math.round(percent));
+  };
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    e.preventDefault();
+    setDragging(true);
+    const newVal = getValueFromEvent(e.clientX);
+    onChange?.(newVal);
+    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!dragging) return;
+    const newVal = getValueFromEvent(e.clientX);
+    onChange?.(newVal);
+  };
+
+  const handlePointerUp = () => {
+    setDragging(false);
+  };
+
+  return (
+    <div className={cn("relative", className)} {...props}>
+      {/* Track */}
+      <div
+        ref={trackRef}
+        data-slot="progress"
+        className="relative h-4 w-full rounded-full border-2 border-foreground bg-secondary-background cursor-pointer"
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+      >
+        {/* Filled indicator */}
+        <div
+          data-slot="progress-indicator"
+          className="h-full bg-hero rounded-full transition-[width]"
+          style={{ width: \`\${value}%\` }}
+        />
+
+        {/* Thumb with percentage inside */}
+        <div
+          className={cn(
+            "absolute top-1/2 flex items-center justify-center w-8 h-8  rounded-full border-2 border-foreground bg-background cursor-grab select-none transition-all",
+            dragging && "cursor-grabbing scale-110",
+          )}
+          style={{
+            left: \`\${value}%\`,
+            transform: "translateX(-50%) translateY(-50%)",
+          }}
+        >
+          <span className="text-[10px] font-bold text-foreground">{value}%</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export { Progress };
+
 
         `,
       },
@@ -1127,15 +1191,162 @@ export { Progress }
 import { Progress } from "@/registry/new-york/ui/progress"
 `,
 
-          `const [progress, setProgress] = React.useState(13)
+          `const [progress, setProgress] = React.useState(66);
+`,
+          `<Progress value={progress} onChange={setProgress} className="w-[400px]" />
+`,
+        ],
+      },
+    },
+  },
 
-        React.useEffect(() => {
-        const timer = setTimeout(() => setProgress(66), 500)
-        return () => clearTimeout(timer)
-    }, [])
-`,
-          `<Progress value={progress} className="w-[60%]" />
-`,
+  ProfileSelector: {
+    title: "Profile Selector",
+    slug: "profile-selector",
+    excerpt:
+      "An interactive profile selector with avatar display and selection list.",
+    sections: {
+      preview: {
+        render: ProfileSelectorDemo,
+        code: `
+"use client"
+
+import React from "react"
+import { ProfileSelector } from "@/registry/new-york/ui/profile-selector"
+
+const profiles = [
+  { name: "Sarah Wilson", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop" },
+  { name: "James Miller", image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=150&h=150&fit=crop" },
+  { name: "Emily Chen", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop" },
+]
+
+const ProfileSelectorDemo = () => {
+  return (
+    <ProfileSelector profiles={profiles} defaultSelected={3} />
+  )
+}
+
+export default ProfileSelectorDemo
+
+
+
+        `,
+      },
+      installation: {
+        cli: {
+          pnpm: "pnpm dlx shadcn@latest add https://neobrutalism.dev/r/profile-selector.json",
+          npm: "npx shadcn@latest add https://neobrutalism.dev/r/profile-selector.json",
+          yarn: "npx shadcn@latest add https://neobrutalism.dev/r/profile-selector.json",
+          bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/profile-selector.json",
+        },
+        code: `
+"use client"
+
+import * as React from "react"
+import { cn } from "@/lib/utils"
+
+interface ProfileSelectorProps {
+  profiles: { name: string; image: string }[]
+  defaultSelected?: number
+  onSelect?: (profile: { name: string; image: string }) => void
+  className?: string
+}
+
+function ProfileSelector({
+  profiles,
+  defaultSelected = 0,
+  onSelect,
+  className,
+}: ProfileSelectorProps) {
+  const safeIndex = defaultSelected < profiles.length ? defaultSelected : 0
+  const [selected, setSelected] = React.useState(profiles[safeIndex])
+
+  const handleSelect = (profile: { name: string; image: string }) => {
+    setSelected(profile)
+    onSelect?.(profile)
+  }
+
+  return (
+    <div className={cn("w-[300px]", className)}>
+      {/* Selected Profile Display */}
+      <div className="w-full outline-2 outline-hero flex gap-3 items-center rounded-sm justify-start pl-4 h-11 bg-background border-2 border-foreground transition-all duration-200">
+        <div className="h-8 w-8 border-2 border-foreground rounded-full overflow-hidden">
+          <img
+            src={selected.image}
+            alt={selected.name}
+            className="h-full w-full rounded-full object-cover"
+          />
+        </div>
+        <h1 className="font-medium">{selected.name}</h1>
+      </div>
+
+      {/* Profile List */}
+      <div
+        className="w-full mt-2 grid grid-cols-1 shadow-neo rounded-sm bg-background border-2 border-foreground overflow-hidden"
+        style={{ gridTemplateRows: \`repeat(\${profiles.length}, 1fr)\` }}
+      >
+        {profiles.map((profile) => (
+          <ProfileItem
+            key={profile.name}
+            name={profile.name}
+            image={profile.image}
+            isSelected={selected.name === profile.name}
+            onSelect={() => handleSelect(profile)}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function ProfileItem({
+  name,
+  image,
+  isSelected,
+  onSelect,
+}: {
+  name: string
+  image: string
+  isSelected: boolean
+  onSelect: () => void
+}) {
+  return (
+    <div
+      onClick={onSelect}
+      className={cn(
+        "w-full flex items-center p-2 gap-3 cursor-pointer transition-all duration-150 hover:bg-hero/30",
+        isSelected && "bg-hero"
+      )}
+    >
+      <div className="h-8 w-8 border-2 border-foreground rounded-full overflow-hidden">
+        <img
+          src={image}
+          alt={name}
+          className="h-full w-full rounded-full object-cover object-top"
+        />
+      </div>
+      <h1 className={isSelected ? "font-semibold" : ""}>{name}</h1>
+    </div>
+  )
+}
+
+export { ProfileSelector, ProfileItem }
+
+        `,
+      },
+      usage: {
+        code: [
+          `import { ProfileSelector } from "@/registry/new-york/ui/profile-selector"`,
+
+          `const profiles = [
+  { name: "Sarah Wilson", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop" },
+  { name: "James Miller", image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=150&h=150&fit=crop" },
+  { name: "Emily Chen", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop" },
+]
+
+
+
+ <ProfileSelector profiles={profiles} defaultSelected={0} />`,
         ],
       },
     },
@@ -1164,7 +1375,7 @@ import {
 const SelectDemo = () => {
   return (
       <Select>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[200px]">
         <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>
       <SelectContent>
@@ -1194,31 +1405,31 @@ export default SelectDemo
           bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/accordion.json",
         },
         code: `
-"use client"
+"use client";
 
-import * as SelectPrimitive from "@radix-ui/react-select"
-import { Check, ChevronDown, ChevronUp } from "lucide-react"
+import * as SelectPrimitive from "@radix-ui/react-select";
+import { Check, ChevronDown, ChevronUp } from "lucide-react";
 
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Select({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Root>) {
-  return <SelectPrimitive.Root data-slot="select" {...props} />
+  return <SelectPrimitive.Root data-slot="select" {...props} />;
 }
 
 function SelectGroup({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Group>) {
-  return <SelectPrimitive.Group data-slot="select-group" {...props} />
+  return <SelectPrimitive.Group data-slot="select-group" {...props} />;
 }
 
 function SelectValue({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Value>) {
-  return <SelectPrimitive.Value data-slot="select-value" {...props} />
+  return <SelectPrimitive.Value data-slot="select-value" {...props} />;
 }
 
 function SelectTrigger({
@@ -1230,7 +1441,7 @@ function SelectTrigger({
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
       className={cn(
-        "flex h-10 w-full shadow-neo items-center justify-between rounded-base border-2 border-foreground bg-hero gap-2 px-3 py-2 text-sm font-base text-foreground placeholder:text-foreground/50 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "flex h-10 w-full shadow-neo items-center cursor-pointer justify-between rounded-base border-2 border-foreground bg-hero gap-2 px-3 py-2 text-sm font-base text-foreground placeholder:text-foreground/50 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className,
       )}
       {...props}
@@ -1240,7 +1451,7 @@ function SelectTrigger({
         <ChevronDown className="size-4" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
-  )
+  );
 }
 
 function SelectScrollUpButton({
@@ -1258,7 +1469,7 @@ function SelectScrollUpButton({
     >
       <ChevronUp className="size-4" />
     </SelectPrimitive.ScrollUpButton>
-  )
+  );
 }
 
 function SelectScrollDownButton({
@@ -1276,7 +1487,7 @@ function SelectScrollDownButton({
     >
       <ChevronDown className="size-4" />
     </SelectPrimitive.ScrollDownButton>
-  )
+  );
 }
 
 function SelectContent({
@@ -1290,7 +1501,7 @@ function SelectContent({
       <SelectPrimitive.Content
         data-slot="select-content"
         className={cn(
-          "relative z-50  max-h-96 min-w-[8rem] overflow-hidden rounded-base border-2 border-foreground bg-hero text-main-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-(--radix-select-content-transform-origin)",
+          "relative z-50 cursor-pointer  max-h-96 min-w-[8rem] overflow-hidden rounded-base border-2 border-foreground bg-hero text-main-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-(--radix-select-content-transform-origin)",
           position === "popper" &&
             "data-[side=bottom]:translate-y-3 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
           className,
@@ -1311,7 +1522,7 @@ function SelectContent({
         <SelectScrollDownButton />
       </SelectPrimitive.Content>
     </SelectPrimitive.Portal>
-  )
+  );
 }
 
 function SelectLabel({
@@ -1327,7 +1538,7 @@ function SelectLabel({
       )}
       {...props}
     />
-  )
+  );
 }
 
 function SelectItem({
@@ -1339,7 +1550,7 @@ function SelectItem({
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
-        "relative flex w-full cursor-default select-none items-center gap-2 rounded-base py-1.5 pr-8 pl-2 text-sm border-2 border-transparent font-base outline-none focus:border-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2",
+        "relative flex w-full cursor-pointer select-none items-center gap-2 rounded-base py-1.5 pr-8 pl-2 text-sm border-2 border-transparent font-base outline-none  focus:border-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2",
         className,
       )}
       {...props}
@@ -1351,7 +1562,7 @@ function SelectItem({
       </span>
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
     </SelectPrimitive.Item>
-  )
+  );
 }
 
 function SelectSeparator({
@@ -1364,7 +1575,7 @@ function SelectSeparator({
       className={cn("-mx-1 my-1 h-px bg-hero", className)}
       {...props}
     />
-  )
+  );
 }
 
 export {
@@ -1378,7 +1589,8 @@ export {
   SelectSeparator,
   SelectScrollUpButton,
   SelectScrollDownButton,
-}
+};
+
 
 
         `,
@@ -1397,7 +1609,7 @@ export {
 `,
 
           ` <Select>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[200px]">
       <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>
       <SelectContent>
@@ -1430,7 +1642,7 @@ import {
 export  function SelectDemo2() {
   return (
     <Select>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[200px]">
         <SelectValue placeholder="Large List" />
       </SelectTrigger>
       <SelectContent>
@@ -1461,7 +1673,7 @@ import {
 export  function SelectDemo3() {
   return (
     <Select disabled>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[200px]">
         <SelectValue placeholder="Disabled" />
       </SelectTrigger>
       <SelectContent>
@@ -1503,7 +1715,7 @@ import {
 export  function SelectDemo4() {
   return (
     <Select>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[200px]">
         <SelectValue
           placeholder={
             <>
@@ -1655,24 +1867,25 @@ export default TextareaDemo
           bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/accordion.json",
         },
         code: `
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
   return (
     <textarea
       data-slot="textarea"
       className={cn(
-        "flex min-h-[80px] w-[500px] rounded-base border-2 border-foreground bg-secondary-background selection:bg-main selection:text-main-foreground px-3 py-2 text-sm font-base text-foreground placeholder:text-foreground/50 focus-visible:outline-none shadow-neo disabled:cursor-not-allowed disabled:opacity-50",
+        "flex min-h-[80px] w-[500px] rounded-base border-2 hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all duration-150 border-foreground bg-secondary-background selection:bg-main selection:text-main-foreground px-3 py-2 text-sm font-base text-foreground placeholder:text-foreground/50 focus-visible:outline-none shadow-neo disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
       {...props}
     />
-  )
+  );
 }
 
-export { Textarea }
+export { Textarea };
+
 
 
         `,
@@ -1691,6 +1904,95 @@ import { Textarea } from "@/registry/new-york/ui/textarea"
       },
     },
   },
+
+  TooltipCard: {
+    title: "Tooltip Card",
+    slug: "tooltip-card",
+    excerpt:
+      "A tooltip card that shows additional information with a directional arrow.",
+    sections: {
+      preview: {
+        render: TooltipCardDemo,
+        code: `
+import React from "react";
+import { TooltipCard } from "@/registry/new-york/ui/tooltip-card";
+
+const TooltipCardDemo = () => {
+  return (
+    <TooltipCard
+      title="Tooltip text"
+      description="A tooltip shows additional information related to an element. It appears when the user hovers or focuses on the item. This helps explain actions, labels, or icons clearly."
+      className="w-[400px]"
+    />
+  );
+};
+
+export default TooltipCardDemo;
+
+
+
+        `,
+      },
+      installation: {
+        cli: {
+          pnpm: "pnpm dlx shadcn@latest add https://neobrutalism.dev/r/tooltip-card.json",
+          npm: "npx shadcn@latest add https://neobrutalism.dev/r/tooltip-card.json",
+          yarn: "npx shadcn@latest add https://neobrutalism.dev/r/tooltip-card.json",
+          bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/tooltip-card.json",
+        },
+        code: `
+import * as React from "react";
+
+import { cn } from "@/lib/utils";
+
+interface TooltipCardProps {
+  title?: string;
+  description?: string;
+  className?: string;
+}
+
+function TooltipCard({
+  title = "Tooltip text",
+  description = "A tooltip shows additional information related to an element. It appears when the user hovers or focuses on the item.",
+  className,
+}: TooltipCardProps) {
+
+  return (
+    <div className={cn("relative inline-block", className)}>
+      <div
+        data-slot="tooltip-card"
+        className="border-2 p-3  border-foreground bg-background shadow-neo hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all duration-150"
+      >
+        <h2 className="text-sm font-semibold pb-1">{title}</h2>
+        <p className="text-xs">{description}</p>
+      </div>
+    </div>
+  );
+}
+
+export { TooltipCard };
+
+
+        `,
+      },
+      usage: {
+        code: [
+          `import { TooltipCard } from "@/registry/new-york/ui/tooltip-card"
+`,
+
+          `<TooltipCard
+  title="Tooltip text"
+  description="A tooltip shows additional information."
+/>
+`,
+        ],
+      },
+    },
+  },
+
+  
+
+  
 };
 
 interface ComponentsList {

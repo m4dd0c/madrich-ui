@@ -16,10 +16,13 @@ import { Textarea } from "@/registry/new-york/ui/textarea";
 import { AvatarGroupCountExample } from "@/renders/component/AvatarDemo";
 import { InputWithLabelDemo } from "@/renders/component/InputDemo";
 import { IoIosAlert } from "react-icons/io";
-import { useState } from "react";
+import { ProfileSelector } from "@/registry/new-york/ui/profile-selector";
+import { CreatorCard } from "./CreatorCard";
+import TooltipCardDemo from "@/renders/component/TooltipCardDemo";
 
 
-const profiles = [
+
+const profiles_mh = [
   { name: "Sarah Wilson", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop" },
   { name: "James Miller", image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=150&h=150&fit=crop" },
   { name: "Emily Davis", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop" },
@@ -28,8 +31,8 @@ const profiles = [
   { name: "David Anderson", image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop" },
 ];
 
+
 const Hero = () => {
-  const [selectedProfile, setSelectedProfile] = useState(profiles[3]);
 
   return (
     <>
@@ -80,7 +83,7 @@ const Hero = () => {
         <div className="w-[40%] flex flex-col gap-6">
           {/* Badges Row */}
           <div className="flex gap-5 justify-between">
-            <div className="flex mt-20 h-10 gap-5">
+            <div className="flex mt-24 h-10 gap-5">
               <button className="border border-foreground p-1 px-5 font-semibold bg-[#FFC900] rounded-sm shadow-neo hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all duration-150">
                 Badge
               </button>
@@ -121,14 +124,7 @@ const Hero = () => {
             {/* Left Column */}
             <div className="flex flex-col gap-10">
               {/* Tooltip Card */}
-              <div className="h-30 w-[400px] border-2 p-2 border-foreground bg-background shadow-neo hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all duration-150 cursor-pointer">
-                <h2 className="text-sm font-semibold pb-1">Tooltip text</h2>
-                <p className="text-[12px]">
-                  A tooltip shows additional information related to an element.
-                  It appears when the user hovers or focuses on the item. This
-                  helps explain actions, labels, or icons clearly.
-                </p>
-              </div>
+              <TooltipCardDemo/>
 
               {/* Search Inputs */}
               <div className="flex gap-4 h-10 w-[400px] border-2 bg-background p-2 border-foreground shadow-neo hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all duration-150 focus-within:shadow-none focus-within:translate-x-[5px] focus-within:translate-y-[5px]">
@@ -211,35 +207,8 @@ const Hero = () => {
                 <h2 className="font-semibold">Sign in with Google</h2>
               </div>
 
-              {/* Profile Selector - Functional */}
-              <div>
-                {/* Selected Profile Display */}
-                <div className="w-[300px] outline-2 outline-hero flex gap-3 items-center rounded-sm rounded-r-none justify-start pl-4 h-11 bg-background border-2 border-r-0 border-foreground transition-all duration-200">
-                  <div className="h-8 w-8 border-2 border-foreground rounded-full overflow-hidden">
-                    <Image
-                      src={selectedProfile.image}
-                      alt={selectedProfile.name}
-                      width={100}
-                      height={100}
-                      className="h-full w-full rounded-full object-cover"
-                    />
-                  </div>
-                  <h1 className="font-medium">{selectedProfile.name}</h1>
-                </div>
-
-                {/* Profile List - Now Interactive */}
-                <div className="w-[300px] h-[300px] mt-2 grid grid-cols-1 shadow-neo grid-rows-6 rounded-sm rounded-r-none bg-background border-2 border-r-0 border-foreground overflow-hidden">
-                  {profiles.map((profile) => (
-                    <ProfileItem
-                      key={profile.name}
-                      name={profile.name}
-                      image={profile.image}
-                      isSelected={selectedProfile.name === profile.name}
-                      onSelect={() => setSelectedProfile(profile)}
-                    />
-                  ))}
-                </div>
-              </div>
+              {/* Profile Selector */}
+              <ProfileSelector profiles={profiles_mh} defaultSelected={3} className="w-[300px]" />
 
               <Textarea
                 className="w-[300px] border-r-0 bg-background"
@@ -261,86 +230,5 @@ const Hero = () => {
 
 export default Hero;
 
-// Profile Item Component - Interactive
-interface ProfileItemProps {
-  name: string;
-  image: string;
-  isSelected: boolean;
-  onSelect: () => void;
-}
 
 
-const ProfileItem = ({ name, image, isSelected, onSelect }: ProfileItemProps) => {
-  return (
-    <div
-      onClick={onSelect}
-      className={`w-full flex items-center p-2 gap-3 cursor-pointer transition-all duration-150 hover:bg-hero/30 ${
-        isSelected ? "bg-hero" : ""
-      }`}
-    >
-      <div className="h-8 w-8 border-2 border-foreground rounded-full overflow-hidden">
-        <Image
-          src={image}
-          alt={name}
-          width={100}
-          height={100}
-          quality={100}
-          className="h-full w-full rounded-full object-cover object-top"
-        />
-      </div>
-      <h1 className={isSelected ? "font-semibold" : ""}>{name}</h1>
-    </div>
-  );
-};
-
-
-
-
-export const CreatorCard = () => {
-  return (
-   <div className="flex relative">
-              {/* Avatar 1 */}
-              <div className="group relative w-30 h-30 border-3 border-background rounded-full hover:z-20 hover:scale-[1.05] transition-all duration-300 bg-white cursor-pointer">
-                <Image
-                  src="/image/harish.jpeg"
-                  alt="hero"
-                  width={250}
-                  height={250}
-                  quality={100}
-                  className="h-full w-full rounded-full object-cover object-center"
-                />
-                {/* Hover Card */}
-                <div className="absolute -top-17 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto z-30">
-                  <div className="bg-background border-2 border-foreground shadow-neo p-2 px-3 whitespace-nowrap">
-                    <h3 className="font-semibold text-sm">Harish Suthar</h3>
-                    <Link href="https://github.com/h4rich" target="_blank" className="text-xs text-hero font-medium flex items-center gap-1 hover:underline">
-                      <CodeXml className="size-3" /> github.com/h4rich
-                    </Link>
-                  </div>
-                  <div className="w-3 h-3 bg-background border-r-2 border-b-2 border-foreground rotate-45 absolute -bottom-1.5 left-1/2 -translate-x-1/2" />
-                </div>
-              </div>
-
-              {/* Avatar 2 */}
-              <div className="group absolute left-25 w-30 h-30 border-3 border-background bg-white hover:scale-[1.05] transition-all duration-300 rounded-full z-10 cursor-pointer">
-                <Image
-                  src="/image/manish.png"
-                  alt="hero"
-                  width={250}
-                  height={250}
-                  className="h-full w-full rounded-full object-cover object-top"
-                />
-                {/* Hover Card */}
-                <div className="absolute -top-17 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto z-30">
-                  <div className="bg-background border-2 border-foreground shadow-neo p-2 px-3 whitespace-nowrap">
-                    <h3 className="font-semibold text-sm">Manish Suthar</h3>
-                    <Link href="https://github.com/m4dd0c" target="_blank" className="text-xs text-hero font-medium flex items-center gap-1 hover:underline">
-                      <CodeXml className="size-3" /> github.com/m4dd0c
-                    </Link>
-                  </div>
-                  <div className="w-3 h-3 bg-background border-r-2 border-b-2 border-foreground rotate-45 absolute -bottom-1.5 left-1/2 -translate-x-1/2" />
-                </div>
-              </div>
-            </div>
-  );
-};

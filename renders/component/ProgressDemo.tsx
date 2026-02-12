@@ -4,15 +4,11 @@ import * as React from "react";
 import { Progress } from "@/registry/new-york/ui/progress";
 
 const ProgressDemo = () => {
-  const [progress, setProgress] = React.useState(13);
+  const [progress, setProgress] = React.useState(66);
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => setProgress(66), 500);
-    return () => clearTimeout(timer);
-  }, []);
   return (
     <>
-      <Progress value={progress} className="w-[400px]" />
+      <Progress value={progress} onChange={setProgress} className="w-[400px]" />
     </>
   );
 };
