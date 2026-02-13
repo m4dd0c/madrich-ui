@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Search, X } from "lucide-react";
-import { componentsList } from "@/lib/constants";
+import { componentsList } from "@/lib/ui-components";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
@@ -19,7 +19,7 @@ const SearchCommand = ({ open, onClose }: SearchCommandProps) => {
 
   // Filter components based on query
   const filtered = componentsList.filter((c) =>
-    c.title.toLowerCase().includes(query.toLowerCase())
+    c.title.toLowerCase().includes(query.toLowerCase()),
   );
 
   // Reset on open/close
@@ -48,7 +48,7 @@ const SearchCommand = ({ open, onClose }: SearchCommandProps) => {
       router.push(`/components/${slug}`);
       onClose();
     },
-    [router, onClose]
+    [router, onClose],
   );
 
   // Keyboard navigation
@@ -89,7 +89,10 @@ const SearchCommand = ({ open, onClose }: SearchCommandProps) => {
         <div className="w-[90vw] max-w-[520px] bg-background border-3 border-foreground shadow-neo-lg animate-in fade-in-0 zoom-in-95 slide-in-from-top-4 duration-200">
           {/* Search Input */}
           <div className="flex items-center gap-3 px-4 border-b-3 border-foreground">
-            <Search className="size-5 shrink-0 text-foreground" strokeWidth={2.5} />
+            <Search
+              className="size-5 shrink-0 text-foreground"
+              strokeWidth={2.5}
+            />
             <input
               ref={inputRef}
               value={query}
@@ -121,7 +124,7 @@ const SearchCommand = ({ open, onClose }: SearchCommandProps) => {
                     "w-full flex items-center gap-3 px-4 py-3 text-left transition-all duration-100 font-bold text-base capitalize",
                     selectedIndex === index
                       ? "bg-hero border-2 border-foreground shadow-neo-sm"
-                      : "border-2 border-transparent hover:bg-hero/20"
+                      : "border-2 border-transparent hover:bg-hero/20",
                   )}
                 >
                   <div className="size-8 bg-foreground/10 border-2 border-foreground flex items-center justify-center text-sm font-black uppercase">
@@ -139,7 +142,9 @@ const SearchCommand = ({ open, onClose }: SearchCommandProps) => {
               <kbd className="px-2 py-0.5 text-xs font-black bg-foreground text-background border border-foreground">
                 ↑↓
               </kbd>
-              <span className="text-xs font-bold text-foreground/60">Navigate</span>
+              <span className="text-xs font-bold text-foreground/60">
+                Navigate
+              </span>
             </div>
             <div className="flex gap-2">
               <kbd className="px-2 py-0.5 text-xs font-black bg-foreground text-background border border-foreground">
@@ -151,7 +156,9 @@ const SearchCommand = ({ open, onClose }: SearchCommandProps) => {
               <kbd className="px-2 py-0.5 text-xs font-black bg-foreground text-background border border-foreground">
                 Esc
               </kbd>
-              <span className="text-xs font-bold text-foreground/60">Close</span>
+              <span className="text-xs font-bold text-foreground/60">
+                Close
+              </span>
             </div>
           </div>
         </div>

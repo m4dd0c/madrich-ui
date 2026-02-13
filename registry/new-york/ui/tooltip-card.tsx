@@ -13,7 +13,6 @@ function TooltipCard({
   description = "A tooltip shows additional information related to an element. It appears when the user hovers or focuses on the item.",
   className,
 }: TooltipCardProps) {
-
   return (
     <div className={cn("relative inline-block", className)}>
       <div

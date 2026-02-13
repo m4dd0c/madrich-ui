@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center gap-6">
-          <CreatorCard />
+            <CreatorCard />
           </div>
         </div>
 

@@ -20,20 +20,40 @@ import { ProfileSelector } from "@/registry/new-york/ui/profile-selector";
 import { CreatorCard } from "./CreatorCard";
 import TooltipCardDemo from "@/renders/component/TooltipCardDemo";
 
-
-
 const profiles_mh = [
-  { name: "Sarah Wilson", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop" },
-  { name: "James Miller", image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=150&h=150&fit=crop" },
-  { name: "Emily Davis", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop" },
-  { name: "Michael Brown", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop" },
-  { name: "Jessica Taylor", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop" },
-  { name: "David Anderson", image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop" },
+  {
+    name: "Sarah Wilson",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
+  },
+  {
+    name: "James Miller",
+    image:
+      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=150&h=150&fit=crop",
+  },
+  {
+    name: "Emily Davis",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
+  },
+  {
+    name: "Michael Brown",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
+  },
+  {
+    name: "Jessica Taylor",
+    image:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop",
+  },
+  {
+    name: "David Anderson",
+    image:
+      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop",
+  },
 ];
 
-
 const Hero = () => {
-
   return (
     <>
       <div className="relative font-grotesk flex justify-between h-screen w-full mask-b-from-90% overflow-hidden">
@@ -63,7 +83,7 @@ const Hero = () => {
 
           {/* Bottom Left Avatars */}
           <div className="flex justify-between items-center mr-16">
-           <CreatorCard />
+            <CreatorCard />
 
             <div className="flex flex-col gap-8">
               <AvatarGroupCountExample />
@@ -71,7 +91,9 @@ const Hero = () => {
               <div className="w-[300px] h-20 flex items-center justify-between p-6 border-2 bg-[#E9DCFE] rounded-sm rounded-b-none border-b-0 border-hero cursor-pointer">
                 <div className="flex gap-2 items-center">
                   <IoIosAlert className="size-6 text-black" />
-                  <h2 className="font-semibold text-black text-lg">Information</h2>
+                  <h2 className="font-semibold text-black text-lg">
+                    Information
+                  </h2>
                 </div>
                 <X className="size-6 text-black" />
               </div>
@@ -95,11 +117,17 @@ const Hero = () => {
               </button>
             </div>
             <div className="flex items-center justify-center gap-4 mt-15 h-20 w-[400px] border-2 border-foreground border-r-0 rounded-sm shadow-neo rounded-br-none bg-card-alt hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all duration-150">
-              <Link href="#" className="flex items-center gap-2 underline underline-offset-2">
+              <Link
+                href="#"
+                className="flex items-center gap-2 underline underline-offset-2"
+              >
                 <Link2 />
                 Copy link
               </Link>
-              <Link href="#" className="flex items-center gap-2 underline underline-offset-2">
+              <Link
+                href="#"
+                className="flex items-center gap-2 underline underline-offset-2"
+              >
                 <CodeXml />
                 Get embed code
               </Link>
@@ -124,17 +152,25 @@ const Hero = () => {
             {/* Left Column */}
             <div className="flex flex-col gap-10">
               {/* Tooltip Card */}
-              <TooltipCardDemo/>
+              <TooltipCardDemo />
 
               {/* Search Inputs */}
               <div className="flex gap-4 h-10 w-[400px] border-2 bg-background p-2 border-foreground shadow-neo hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all duration-150 focus-within:shadow-none focus-within:translate-x-[5px] focus-within:translate-y-[5px]">
                 <Search className="ml-2 size-[18px]" />
-                <input className="outline-none bg-transparent" type="text" placeholder="Search" />
+                <input
+                  className="outline-none bg-transparent"
+                  type="text"
+                  placeholder="Search"
+                />
               </div>
 
               <div className="flex gap-4 h-10 w-[400px] border-2 outline-3 outline-hero bg-background p-2 border-foreground">
                 <Search className="ml-2 size-[18px]" />
-                <input className="outline-none bg-transparent" type="text" placeholder="Search" />
+                <input
+                  className="outline-none bg-transparent"
+                  type="text"
+                  placeholder="Search"
+                />
                 <CircleX className="ml-25 size-[18px]" />
               </div>
 
@@ -147,15 +183,24 @@ const Hero = () => {
                 </div>
 
                 <Avatar className="outline-foreground size-18">
-                  <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                  <AvatarImage
+                    src="https://github.com/shadcn.png"
+                    alt="@shadcn"
+                  />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 <Avatar className="outline-foreground size-18">
-                  <AvatarImage src="https://i.pinimg.com/736x/3c/f2/0f/3cf20fb883610c063ecf936fbc4e4235.jpg" alt="@shadcn" />
+                  <AvatarImage
+                    src="https://i.pinimg.com/736x/3c/f2/0f/3cf20fb883610c063ecf936fbc4e4235.jpg"
+                    alt="@shadcn"
+                  />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 <Avatar className="outline-foreground size-18">
-                  <AvatarImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1k2CGi9bJc7c0iQONfI4v1MYsBJe-Nlwntg&s" alt="@shadcn" />
+                  <AvatarImage
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1k2CGi9bJc7c0iQONfI4v1MYsBJe-Nlwntg&s"
+                    alt="@shadcn"
+                  />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
               </div>
@@ -166,21 +211,39 @@ const Hero = () => {
               <div className="flex h-10 gap-5">
                 <div className="flex items-center gap-3 border border-foreground w-[120px] p-1 px-2 font-semibold bg-[#FFC900] rounded-sm shadow-neo hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all duration-150 cursor-pointer">
                   <div className="h-7 w-7 border-2 border-foreground rounded-sm">
-                    <Image src="/image/icon.jfif" alt="@shadcn" width={100} height={100} className="h-full w-full rounded-[4px] object-fill" />
+                    <Image
+                      src="/image/icon.jfif"
+                      alt="@shadcn"
+                      width={100}
+                      height={100}
+                      className="h-full w-full rounded-[4px] object-fill"
+                    />
                   </div>
                   <h2>Orla</h2>
                   <X className="size-4" />
                 </div>
                 <div className="flex items-center gap-3 border border-foreground w-[120px] p-1 px-2 font-semibold bg-[#11A365] rounded-lg shadow-neo hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all duration-150 cursor-pointer">
                   <div className="h-7 w-7 border-2 border-foreground rounded-md">
-                    <Image src="/image/icon2.jpg" alt="@shadcn" width={100} height={100} className="h-full w-full rounded-sm object-cover" />
+                    <Image
+                      src="/image/icon2.jpg"
+                      alt="@shadcn"
+                      width={100}
+                      height={100}
+                      className="h-full w-full rounded-sm object-cover"
+                    />
                   </div>
                   <h2>Orla</h2>
                   <X className="size-4" />
                 </div>
                 <div className="flex items-center gap-3 border border-foreground w-[120px] p-1 px-2 font-semibold bg-[#FF7051] rounded-full shadow-neo hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all duration-150 cursor-pointer">
                   <div className="h-7 w-7 border-2 border-foreground rounded-full">
-                    <Image src="/image/icon3.jfif" alt="@shadcn" width={100} height={100} className="h-full w-full rounded-full object-cover" />
+                    <Image
+                      src="/image/icon3.jfif"
+                      alt="@shadcn"
+                      width={100}
+                      height={100}
+                      className="h-full w-full rounded-full object-cover"
+                    />
                   </div>
                   <h2>Orla</h2>
                   <X className="size-4" />
@@ -190,11 +253,19 @@ const Hero = () => {
               {/* Notification Card */}
               <div className="w-[400px] p-4 bg-background flex gap-4 h-30 shadow-neo rounded-sm border-2 border-foreground hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all duration-150 cursor-pointer">
                 <div className="h-11 w-11 border-2 border-foreground rounded-full">
-                  <Image src="/image/icon4.jpg" alt="@shadcn" width={100} height={100} className="h-full w-full rounded-full object-cover object-top" />
+                  <Image
+                    src="/image/icon4.jpg"
+                    alt="@shadcn"
+                    width={100}
+                    height={100}
+                    className="h-full w-full rounded-full object-cover object-top"
+                  />
                 </div>
                 <div>
                   <h2>John Snow</h2>
-                  <p className="text-sm text-muted-neo">Sent you an invite to connect</p>
+                  <p className="text-sm text-muted-neo">
+                    Sent you an invite to connect
+                  </p>
                 </div>
               </div>
             </div>
@@ -208,7 +279,11 @@ const Hero = () => {
               </div>
 
               {/* Profile Selector */}
-              <ProfileSelector profiles={profiles_mh} defaultSelected={3} className="w-[300px]" />
+              <ProfileSelector
+                profiles={profiles_mh}
+                defaultSelected={3}
+                className="w-[300px]"
+              />
 
               <Textarea
                 className="w-[300px] border-r-0 bg-background"
@@ -229,6 +304,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-
-

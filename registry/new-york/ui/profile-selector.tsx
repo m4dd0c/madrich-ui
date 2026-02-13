@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
 interface ProfileSelectorProps {
-  profiles: { name: string; image: string }[]
-  defaultSelected?: number
-  onSelect?: (profile: { name: string; image: string }) => void
-  className?: string
+  profiles: { name: string; image: string }[];
+  defaultSelected?: number;
+  onSelect?: (profile: { name: string; image: string }) => void;
+  className?: string;
 }
 
 function ProfileSelector({
@@ -16,13 +16,13 @@ function ProfileSelector({
   onSelect,
   className,
 }: ProfileSelectorProps) {
-  const safeIndex = defaultSelected < profiles.length ? defaultSelected : 0
-  const [selected, setSelected] = React.useState(profiles[safeIndex])
+  const safeIndex = defaultSelected < profiles.length ? defaultSelected : 0;
+  const [selected, setSelected] = React.useState(profiles[safeIndex]);
 
   const handleSelect = (profile: { name: string; image: string }) => {
-    setSelected(profile)
-    onSelect?.(profile)
-  }
+    setSelected(profile);
+    onSelect?.(profile);
+  };
 
   return (
     <div className={cn("w-[300px]", className)}>
@@ -54,7 +54,7 @@ function ProfileSelector({
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 function ProfileItem({
@@ -63,17 +63,17 @@ function ProfileItem({
   isSelected,
   onSelect,
 }: {
-  name: string
-  image: string
-  isSelected: boolean
-  onSelect: () => void
+  name: string;
+  image: string;
+  isSelected: boolean;
+  onSelect: () => void;
 }) {
   return (
     <div
       onClick={onSelect}
       className={cn(
         "w-full flex items-center p-2 gap-3 cursor-pointer transition-all duration-150 hover:bg-hero/30",
-        isSelected && "bg-hero"
+        isSelected && "bg-hero",
       )}
     >
       <div className="h-8 w-8 border-2 border-foreground rounded-full overflow-hidden">
@@ -85,7 +85,7 @@ function ProfileItem({
       </div>
       <h1 className={isSelected ? "font-semibold" : ""}>{name}</h1>
     </div>
-  )
+  );
 }
 
-export { ProfileSelector, ProfileItem }
+export { ProfileSelector, ProfileItem };

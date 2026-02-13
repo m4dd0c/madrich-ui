@@ -39,7 +39,7 @@ const PageLoader = () => {
         setProgress(0);
       }
     },
-    [pathname]
+    [pathname],
   );
 
   useEffect(() => {

@@ -69,7 +69,8 @@ function Features() {
       <div
         className="absolute inset-0 opacity-[0.05] pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(currentColor 1.5px, transparent 1.5px)",
+          backgroundImage:
+            "radial-gradient(currentColor 1.5px, transparent 1.5px)",
           backgroundSize: "24px 24px",
         }}
       ></div>

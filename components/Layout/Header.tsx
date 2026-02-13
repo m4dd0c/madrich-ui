@@ -93,7 +93,10 @@ const Header = () => {
         {/* Desktop Right Section */}
         <div className="hidden md:flex items-center space-x-4 lg:space-x-4">
           <Social />
-          <SearchBar className="hidden lg:flex w-[200px] xl:w-[280px]" onClick={() => setIsSearchOpen(true)} />
+          <SearchBar
+            className="hidden lg:flex w-[200px] xl:w-[280px]"
+            onClick={() => setIsSearchOpen(true)}
+          />
           <Mode />
         </div>
 
@@ -113,7 +116,7 @@ const Header = () => {
               "relative cursor-pointer border-[3px] border-foreground p-2 text-foreground size-[44px] flex items-center justify-center transition-all duration-150",
               isMenuOpen
                 ? "bg-[#FF6B6B] shadow-neo"
-                : "bg-[#FFE566] shadow-neo"
+                : "bg-[#FFE566] shadow-neo",
             )}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
@@ -124,7 +127,7 @@ const Header = () => {
                   "absolute inset-0 transition-all duration-200",
                   isMenuOpen
                     ? "opacity-0 rotate-90 scale-0"
-                    : "opacity-100 rotate-0 scale-100"
+                    : "opacity-100 rotate-0 scale-100",
                 )}
                 size={20}
                 strokeWidth={3}
@@ -134,7 +137,7 @@ const Header = () => {
                   "absolute inset-0 transition-all duration-200",
                   isMenuOpen
                     ? "opacity-100 rotate-0 scale-100"
-                    : "opacity-0 -rotate-90 scale-0"
+                    : "opacity-0 -rotate-90 scale-0",
                 )}
                 size={20}
                 strokeWidth={3}
@@ -148,7 +151,7 @@ const Header = () => {
       <div
         className={cn(
           "fixed inset-0 bg-foreground/60 z-[90] md:hidden transition-opacity duration-300 backdrop-blur-sm",
-          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible",
         )}
         onClick={() => setIsMenuOpen(false)}
         aria-hidden="true"
@@ -158,11 +161,10 @@ const Header = () => {
       <nav
         className={cn(
           "fixed top-16 right-0 w-[300px] sm:w-[340px] h-[calc(100vh-64px)] bg-background border-l-[3px] border-foreground z-[95] md:hidden transition-transform duration-300 ease-out overflow-y-auto",
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
+          isMenuOpen ? "translate-x-0" : "translate-x-full",
         )}
       >
         <div className="flex flex-col p-6 space-y-4">
-
           <div className="space-y-3">
             {links.map((link, index) => (
               <Link
@@ -174,7 +176,7 @@ const Header = () => {
                   "transform",
                   isMenuOpen
                     ? "translate-x-0 opacity-100"
-                    : "translate-x-8 opacity-0"
+                    : "translate-x-8 opacity-0",
                 )}
                 style={{
                   transitionDelay: isMenuOpen ? `${index * 75 + 100}ms` : "0ms",
@@ -185,7 +187,6 @@ const Header = () => {
             ))}
           </div>
 
-
           <div className="pt-6 border-t-[3px] border-foreground mt-4">
             <p className="text-sm font-black text-foreground uppercase tracking-widest mb-4">
               Follow us
@@ -193,21 +194,22 @@ const Header = () => {
             <Social />
           </div>
 
-          
           <div className="mt-auto pt-8">
             <div className="w-full h-4 bg-[repeating-linear-gradient(90deg,hsl(var(--foreground)),hsl(var(--foreground))_10px,transparent_10px,transparent_20px)] opacity-20" />
           </div>
         </div>
       </nav>
 
-        {/* Global Search Command Dialog */}
-        <SearchCommand open={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      {/* Global Search Command Dialog */}
+      <SearchCommand
+        open={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+      />
     </>
   );
 };
 
 export default Header;
-
 
 export const Mode = () => {
   const { theme, setTheme } = useTheme();
@@ -227,14 +229,16 @@ export const Mode = () => {
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       className="transition-all relative cursor-pointer bg-hero border-[3px] border-foreground p-2 text-foreground shadow-neo size-[38px] md:size-[42px] flex items-center justify-center hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] duration-150"
-      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+      aria-label={
+        theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+      }
     >
       <Sun
         className={cn(
           "absolute transition-all duration-200",
           theme === "dark"
             ? "opacity-100 rotate-0 scale-100"
-            : "opacity-0 rotate-90 scale-0"
+            : "opacity-0 rotate-90 scale-0",
         )}
         width={20}
         height={20}
@@ -245,7 +249,7 @@ export const Mode = () => {
           "absolute transition-all duration-200",
           theme === "dark"
             ? "opacity-0 -rotate-90 scale-0"
-            : "opacity-100 rotate-0 scale-100"
+            : "opacity-100 rotate-0 scale-100",
         )}
         width={20}
         height={20}
@@ -306,19 +310,29 @@ export const Social = () => {
   );
 };
 
-
-
-export const SearchBar = ({ className, onClick }: { className?: string; onClick?: () => void }) => {
+export const SearchBar = ({
+  className,
+  onClick,
+}: {
+  className?: string;
+  onClick?: () => void;
+}) => {
   return (
     <div
       onClick={onClick}
       className={cn(
         "flex items-center justify-between bg-background space-x-2 border-[3px] border-foreground h-[38px] md:h-[42px] px-3 shadow-neo overflow-hidden hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-150 cursor-pointer",
-        className
+        className,
       )}
     >
-      <Search size={20} className="flex-shrink-0 text-foreground" strokeWidth={2.5} />
-      <span className="w-full text-foreground/60 font-medium select-none">Search...</span>
+      <Search
+        size={20}
+        className="flex-shrink-0 text-foreground"
+        strokeWidth={2.5}
+      />
+      <span className="w-full text-foreground/60 font-medium select-none">
+        Search...
+      </span>
       <kbd className="hidden xl:flex items-center gap-1 px-2 py-0.5 text-xs font-bold bg-foreground text-background border border-foreground">
         ⌘K
       </kbd>

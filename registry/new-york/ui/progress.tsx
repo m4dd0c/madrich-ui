@@ -70,7 +70,9 @@ function Progress({ className, value = 0, onChange, ...props }: ProgressProps) {
             transform: "translateX(-50%) translateY(-50%)",
           }}
         >
-          <span className="text-[10px] font-bold text-foreground">{value}%</span>
+          <span className="text-[10px] font-bold text-foreground">
+            {value}%
+          </span>
         </div>
       </div>
     </div>

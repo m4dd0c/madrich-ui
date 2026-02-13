@@ -86,9 +86,9 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   --hero: #ae7aff;
-  --primary-bg: #F4F4F0;
+  --primary-bg: #f4f4f0;
   --card-surface: #ffffff;
-  --card-alt: #E7E5E4;
+  --card-alt: #e7e5e4;
   --muted-neo: #6b7280;
   --neo-shadow-color: 0 0 0;
 }
@@ -182,7 +182,7 @@
   50% {
     transform: translate(-8px, -8px) rotate(-2deg);
     box-shadow: 16px 16px 0px 0px #000;
-    background-color: #FFC900;
+    background-color: #ffc900;
   }
   100% {
     transform: translate(0, 0) rotate(0deg);

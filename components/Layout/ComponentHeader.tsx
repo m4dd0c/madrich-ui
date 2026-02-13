@@ -55,7 +55,10 @@ const ComponentHeader = ({
             </h1>
           </div>
 
-          <SearchBar className="hidden md:flex md:justify-start w-full md:w-[300px] lg:w-[400px] xl:w-[500px]" onClick={() => setIsSearchOpen(true)} />
+          <SearchBar
+            className="hidden md:flex md:justify-start w-full md:w-[300px] lg:w-[400px] xl:w-[500px]"
+            onClick={() => setIsSearchOpen(true)}
+          />
 
           <div className="flex items-center space-x-4">
             {/* Mobile search icon */}
@@ -75,7 +78,10 @@ const ComponentHeader = ({
       </div>
 
       {/* Global Search Command Dialog */}
-      <SearchCommand open={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      <SearchCommand
+        open={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+      />
     </>
   );
 };

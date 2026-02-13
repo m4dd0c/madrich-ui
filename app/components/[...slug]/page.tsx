@@ -6,7 +6,7 @@ import Header from "@/components/shared/Header";
 import Installation from "@/components/shared/Installation";
 import Preview from "@/components/shared/Preview";
 import Usage from "@/components/shared/Usage";
-import { components } from "@/lib/constants";
+import { components } from "@/lib/ui-components";
 
 type PageProps = {
   params: Promise<{

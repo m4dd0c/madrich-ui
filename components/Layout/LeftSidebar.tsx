@@ -1,5 +1,5 @@
 import React from "react";
-import { componentsList } from "@/lib/constants";
+import { componentsList } from "@/lib/ui-components";
 import Link from "next/link";
 import { X } from "lucide-react";
 

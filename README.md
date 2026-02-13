@@ -122,21 +122,21 @@ madrich-ui/
 
 ## 🧩 Components
 
-| Component            | Description                                                  |
-| -------------------- | ------------------------------------------------------------ |
-| **Accordion**        | Collapsible content panels with animated expand/collapse     |
-| **Alert Dialog**     | Modal confirmation dialogs with action/cancel buttons        |
-| **Avatar**           | User profile images with fallback initials and group display |
-| **Button**           | Versatile button with multiple variants and sizes            |
-| **Checkbox**         | Toggle checkboxes with neo-brutal styling                    |
-| **Image Card**       | Cards optimized for displaying images with captions          |
+| Component            | Description                                                       |
+| -------------------- | ----------------------------------------------------------------- |
+| **Accordion**        | Collapsible content panels with animated expand/collapse          |
+| **Alert Dialog**     | Modal confirmation dialogs with action/cancel buttons             |
+| **Avatar**           | User profile images with fallback initials and group display      |
+| **Button**           | Versatile button with multiple variants and sizes                 |
+| **Checkbox**         | Toggle checkboxes with neo-brutal styling                         |
+| **Image Card**       | Cards optimized for displaying images with captions               |
 | **Input**            | Text input fields with file, disabled, label, and button variants |
-| **Profile Selector** | Interactive avatar-based profile picker with selection list  |
-| **Progress**         | Draggable progress bar with percentage thumb indicator       |
-| **Select**           | Dropdown selection with search, groups, and labels           |
-| **Switch**           | Toggle switches for boolean settings                         |
-| **Textarea**         | Multi-line text input fields                                 |
-| **Tooltip Card**     | Hoverable tooltip cards with rich content                    |
+| **Profile Selector** | Interactive avatar-based profile picker with selection list       |
+| **Progress**         | Draggable progress bar with percentage thumb indicator            |
+| **Select**           | Dropdown selection with search, groups, and labels                |
+| **Switch**           | Toggle switches for boolean settings                              |
+| **Textarea**         | Multi-line text input fields                                      |
+| **Tooltip Card**     | Hoverable tooltip cards with rich content                         |
 
 ---
 
@@ -155,33 +155,33 @@ Madrich UI uses a custom design token system defined in `globals.css`:
 
 ## 🛠️ Tech Stack
 
-| Technology         | Purpose                              |
-| ------------------ | ------------------------------------ |
-| **Next.js 15**     | React framework with App Router      |
-| **React 19**       | UI rendering                         |
-| **Tailwind CSS v4**| Utility-first styling                |
-| **Radix UI**       | Accessible headless primitives       |
-| **shadcn/ui**      | Component registry system            |
-| **next-themes**    | Dark/light mode switching            |
-| **Prism.js**       | Syntax highlighting for code blocks  |
-| **Lucide React**   | Icon library                         |
-| **Zod**            | Schema validation                    |
-| **Turbopack**      | Fast development server bundler      |
-| **Husky**          | Git hooks for code quality           |
-| **Prettier**       | Code formatting                      |
+| Technology          | Purpose                             |
+| ------------------- | ----------------------------------- |
+| **Next.js 15**      | React framework with App Router     |
+| **React 19**        | UI rendering                        |
+| **Tailwind CSS v4** | Utility-first styling               |
+| **Radix UI**        | Accessible headless primitives      |
+| **shadcn/ui**       | Component registry system           |
+| **next-themes**     | Dark/light mode switching           |
+| **Prism.js**        | Syntax highlighting for code blocks |
+| **Lucide React**    | Icon library                        |
+| **Zod**             | Schema validation                   |
+| **Turbopack**       | Fast development server bundler     |
+| **Husky**           | Git hooks for code quality          |
+| **Prettier**        | Code formatting                     |
 
 ---
 
 ## 📜 Scripts
 
-| Command                | Description                       |
-| ---------------------- | --------------------------------- |
-| `pnpm dev`             | Start dev server with Turbopack   |
-| `pnpm build`           | Build for production              |
-| `pnpm start`           | Start production server           |
-| `pnpm lint`            | Run ESLint                        |
-| `pnpm registry:build`  | Build the shadcn component registry |
-| `pnpm pretty:fix`      | Format code with Prettier         |
+| Command               | Description                         |
+| --------------------- | ----------------------------------- |
+| `pnpm dev`            | Start dev server with Turbopack     |
+| `pnpm build`          | Build for production                |
+| `pnpm start`          | Start production server             |
+| `pnpm lint`           | Run ESLint                          |
+| `pnpm registry:build` | Build the shadcn component registry |
+| `pnpm pretty:fix`     | Format code with Prettier           |
 
 ---
 
