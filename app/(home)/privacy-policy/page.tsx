@@ -1,85 +1,19 @@
-import { Shield, Eye, Database, Lock, Globe, Bell, UserCheck, Mail } from "lucide-react";
-
-const sections = [
-  {
-    icon: Eye,
-    title: "Information We Collect",
-    color: "bg-[#FFC900]",
-    content: [
-      "We may collect personal information such as your name and email address when you use our contact form or subscribe to updates.",
-      "We automatically collect certain technical data, including browser type, device information, and IP address, to improve our services.",
-      "Usage data such as pages visited, time spent, and interactions with components may be collected via analytics tools.",
-    ],
-  },
-  {
-    icon: Database,
-    title: "How We Use Your Data",
-    color: "bg-[#80C551]",
-    content: [
-      "To respond to inquiries submitted through our contact form.",
-      "To improve and optimize the Madrich UI website and component library.",
-      "To send occasional updates about new components, features, or releases (only if you opt in).",
-      "To analyze usage patterns and enhance user experience.",
-    ],
-  },
-  {
-    icon: Lock,
-    title: "Data Protection",
-    color: "bg-[#E9DCFE] dark:bg-card-surface",
-    content: [
-      "We implement industry-standard security measures to protect your personal information from unauthorized access, disclosure, or destruction.",
-      "Your data is never sold to third parties. We may share anonymized, aggregate data for analytics purposes.",
-      "All data transmissions are encrypted using SSL/TLS protocols.",
-    ],
-  },
-  {
-    icon: Globe,
-    title: "Cookies & Tracking",
-    color: "bg-[#FF7051]",
-    content: [
-      "We use essential cookies to ensure the website functions properly, including theme preferences (dark/light mode).",
-      "Analytics cookies may be used to understand how visitors interact with our site. You can opt out of non-essential cookies at any time.",
-      "We do not use cookies for advertising or cross-site tracking.",
-    ],
-  },
-  {
-    icon: Bell,
-    title: "Third-Party Services",
-    color: "bg-card-surface",
-    content: [
-      "Our website may use third-party services such as analytics providers and hosting platforms.",
-      "These services have their own privacy policies, and we encourage you to review them.",
-      "We use GitHub for version control and community interaction. GitHub's privacy policy applies to interactions on their platform.",
-    ],
-  },
-  {
-    icon: UserCheck,
-    title: "Your Rights",
-    color: "bg-[#FFC900]",
-    content: [
-      "You have the right to access, correct, or delete your personal data at any time.",
-      "You may opt out of any marketing communications by clicking the unsubscribe link in our emails.",
-      "You can request a copy of the data we hold about you by contacting us directly.",
-      "If you believe your data has been mishandled, you have the right to lodge a complaint with a supervisory authority.",
-    ],
-  },
-];
+import { primaryPolicySections } from "@/lib/const";
+import { Mail, Shield } from "lucide-react";
 
 export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-primary-bg font-grotesk pt-24 md:pt-28">
-      {/* Hero Section */}
       <section className="relative w-full py-16 md:py-24 px-6 bg-hero overflow-hidden">
-        {/* Dot pattern */}
         <div
           className="absolute inset-0 opacity-10 pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(currentColor 1.5px, transparent 1.5px)",
+            backgroundImage:
+              "radial-gradient(currentColor 1.5px, transparent 1.5px)",
             backgroundSize: "24px 24px",
           }}
         ></div>
 
-        {/* Decorative shapes */}
         <div className="absolute top-6 right-10 w-20 h-20 bg-[#FFC900] rotate-12 border-3 border-foreground shadow-neo-4 hidden md:block"></div>
         <div className="absolute bottom-6 left-10 w-16 h-16 bg-[#80C551] rounded-full border-3 border-foreground shadow-neo-4 hidden md:block"></div>
 
@@ -111,19 +45,18 @@ export default function PrivacyPolicyPage() {
         </div>
       </section>
 
-      {/* Content Sections */}
       <section className="w-full py-16 md:py-24 px-6 relative overflow-hidden">
-        {/* Background dot pattern */}
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(currentColor 1px, transparent 1px)",
+            backgroundImage:
+              "radial-gradient(currentColor 1px, transparent 1px)",
             backgroundSize: "16px 16px",
           }}
         ></div>
 
         <div className="max-w-4xl mx-auto relative z-10 space-y-8">
-          {sections.map((section, index) => (
+          {primaryPolicySections.map((section, index) => (
             <div
               key={index}
               className={`${section.color} border-3 border-foreground p-6 md:p-8 shadow-neo-md hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-neo-4 transition-all duration-200`}
