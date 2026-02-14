@@ -334,7 +334,7 @@ export const SearchBar = ({
         Search...
       </span>
       <kbd className="hidden xl:flex items-center gap-1 px-2 py-0.5 text-xs font-bold bg-foreground text-background border border-foreground">
-        ⌘K
+        ⌘ K
       </kbd>
     </div>
   );

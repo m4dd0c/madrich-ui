@@ -26,6 +26,7 @@ import SwitchDemo from "@/renders/component/SwitchDemo";
 import TextareaDemo from "@/renders/component/TextareaDemo";
 import ProfileSelectorDemo from "@/renders/component/ProfileSelectorDemo";
 import TooltipCardDemo from "@/renders/component/TooltipCardDemo";
+import { formRegistryUrlsObject } from "./utils";
 
 const components: ComponentsMap = {
   Accordion: {
@@ -59,12 +60,7 @@ export default AccordionDemo
         `,
       },
       installation: {
-        cli: {
-          pnpm: "pnpm dlx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          npm: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          yarn: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-        },
+        cli: formRegistryUrlsObject("accordion"),
         code: `
 "use client"
 
@@ -213,12 +209,7 @@ export default function AlertDialogDemo() {
         `,
       },
       installation: {
-        cli: {
-          pnpm: "pnpm dlx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          npm: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          yarn: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-        },
+        cli: formRegistryUrlsObject("alert-dialog"),
         code: `
 "use client"
 
@@ -448,12 +439,7 @@ export default AvatarDemo
         `,
       },
       installation: {
-        cli: {
-          pnpm: "pnpm dlx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          npm: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          yarn: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-        },
+        cli: formRegistryUrlsObject("react-avatar"),
         code: `
 "use client";
 
@@ -653,12 +639,7 @@ export default function ButtonDemo() {
         `,
       },
       installation: {
-        cli: {
-          pnpm: "pnpm dlx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          npm: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          yarn: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-        },
+        cli: formRegistryUrlsObject("button"),
         code: `
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
@@ -778,12 +759,7 @@ export default CheckboxDemo
         `,
       },
       installation: {
-        cli: {
-          pnpm: "pnpm dlx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          npm: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          yarn: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-        },
+        cli: formRegistryUrlsObject("checkbox"),
         code: `
 "use client"
 
@@ -941,12 +917,7 @@ export default InputDemo
         `,
       },
       installation: {
-        cli: {
-          pnpm: "pnpm dlx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          npm: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          yarn: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-        },
+        cli: formRegistryUrlsObject("input"),
         code: `
 import * as React from "react";
 
@@ -1093,12 +1064,7 @@ export default ProgressDemo;
         `,
       },
       installation: {
-        cli: {
-          pnpm: "pnpm dlx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          npm: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          yarn: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-        },
+        cli: formRegistryUrlsObject("progress"),
         code: `
 "use client";
 
@@ -1239,12 +1205,7 @@ export default ProfileSelectorDemo
         `,
       },
       installation: {
-        cli: {
-          pnpm: "pnpm dlx shadcn@latest add https://neobrutalism.dev/r/profile-selector.json",
-          npm: "npx shadcn@latest add https://neobrutalism.dev/r/profile-selector.json",
-          yarn: "npx shadcn@latest add https://neobrutalism.dev/r/profile-selector.json",
-          bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/profile-selector.json",
-        },
+        cli: formRegistryUrlsObject("profile-selector"),
         code: `
 "use client"
 
@@ -1404,12 +1365,7 @@ export default SelectDemo
         `,
       },
       installation: {
-        cli: {
-          pnpm: "pnpm dlx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          npm: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          yarn: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-        },
+        cli: formRegistryUrlsObject("select"),
         code: `
 "use client";
 
@@ -1780,12 +1736,7 @@ export default SwitchDemo
         `,
       },
       installation: {
-        cli: {
-          pnpm: "pnpm dlx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          npm: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          yarn: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-        },
+        cli: formRegistryUrlsObject("switch"),
         code: `
 "use client"
 
@@ -1863,12 +1814,7 @@ export default TextareaDemo
         `,
       },
       installation: {
-        cli: {
-          pnpm: "pnpm dlx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          npm: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          yarn: "npx shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-          bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/accordion.json",
-        },
+        cli: formRegistryUrlsObject("textarea"),
         code: `
 import * as React from "react";
 
@@ -1937,12 +1883,7 @@ export default TooltipCardDemo;
         `,
       },
       installation: {
-        cli: {
-          pnpm: "pnpm dlx shadcn@latest add https://neobrutalism.dev/r/tooltip-card.json",
-          npm: "npx shadcn@latest add https://neobrutalism.dev/r/tooltip-card.json",
-          yarn: "npx shadcn@latest add https://neobrutalism.dev/r/tooltip-card.json",
-          bun: "bunx --bun shadcn@latest add https://neobrutalism.dev/r/tooltip-card.json",
-        },
+        cli: formRegistryUrlsObject("tooltip-card"),
         code: `
 import * as React from "react";
 

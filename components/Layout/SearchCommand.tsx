@@ -15,6 +15,7 @@ const SearchCommand = ({ open, onClose }: SearchCommandProps) => {
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const itemRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const router = useRouter();
 
   // Filter components based on query
@@ -41,6 +42,14 @@ const SearchCommand = ({ open, onClose }: SearchCommandProps) => {
   useEffect(() => {
     setSelectedIndex(0);
   }, [query]);
+
+  // Scroll active item into view
+  useEffect(() => {
+    const element = itemRefs.current[selectedIndex];
+    if (element) {
+      element.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }
+  }, [selectedIndex]);
 
   // Navigate to component
   const navigateTo = useCallback(
@@ -118,6 +127,9 @@ const SearchCommand = ({ open, onClose }: SearchCommandProps) => {
               filtered.map((component, index) => (
                 <button
                   key={component.slug}
+                  ref={(el) => {
+                    itemRefs.current[index] = el;
+                  }}
                   onClick={() => navigateTo(component.slug)}
                   onMouseEnter={() => setSelectedIndex(index)}
                   className={cn(

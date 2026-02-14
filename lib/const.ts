@@ -13,7 +13,7 @@ import {
   Bell,
   UserCheck,
 } from "lucide-react";
-
+const url = "https://madrich-ui.vercel.app/";
 const termsAndConditionsSections = [
   {
     icon: FileText,
@@ -156,4 +156,4 @@ const primaryPolicySections = [
   },
 ];
 
-export { termsAndConditionsSections, primaryPolicySections };
+export { termsAndConditionsSections, primaryPolicySections, url };
